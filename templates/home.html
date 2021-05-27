@@ -9,6 +9,14 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
 <style>
 body {font-family: "Lato", sans-serif}
+
+@media(max-width:768px){
+html{font-size:12px}
+}
+
+@media(max-width:576px){
+html{font-size:9px}
+}
 .mySlides {display: none}
 </style>
 {% endblock %}
@@ -23,7 +31,7 @@ body {font-family: "Lato", sans-serif}
 {% endfor %}
 
 <!-- Page content -->
-<div class="w3-content" style="max-width:2000px;margin-top:46px">
+<div class="w3-content home-main">
 
   <!-- Automatic Slideshow Images -->
   <div class="w3-display-container w3-center">
@@ -31,7 +39,7 @@ body {font-family: "Lato", sans-serif}
   </div>
 
   <!-- The Band Section -->
-  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
+  <div class="w3-container w3-content w3-center cdap-content" style="max-width:800px" id="band">
     <h2 class="w3-wide">CDAP</h2>
     <p class="w3-justify">We provide a platform to connect annotators with researchers. To annotate your data sets and to earn by annotating data sets, simply register in our site. </p>
   </div>
@@ -40,7 +48,7 @@ body {font-family: "Lato", sans-serif}
   <div class="w3-black" id="tour">
     <div class="w3-container w3-content services-padding" style="max-width:800px">
       <h2 class="w3-wide w3-center">OUR SERVICES</h2>
-      <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
+      <div class="w3-row-padding row-our-services" style="margin:0 -16px">
         <div class="w3-half w3-margin-bottom">
           <img src="{% static 'img/annotation.jpeg' %}" alt="" class="w3-hover-opacity img-data-annogen">
           <div class="w3-container w3-white cap">
