@@ -221,37 +221,4 @@ a:hover{
 	}
 }
 
-.img-data-annogen{
-    width:100%;
-    height:150px;
-    -o-object-fit: cover;
-       object-fit: cover;
-}
-
-.services-padding{
-    padding:64px;
-}
-
-@media(max-width:600px){
-.img-data-annogen{
-    width:50%;
-    height:150px;
-    -o-object-fit: cover;
-       object-fit: cover;
-    position:relative;
-    left:50%;
-    transform:translateX(-50%);}
-
-    .cap{
-width:50%;
-position:relative;
-    left:50%;
-    transform:translateX(-50%);
-}
-
-.services-padding{
-    padding:15px;
-}
-
-}
 
