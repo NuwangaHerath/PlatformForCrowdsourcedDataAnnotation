@@ -9,6 +9,382 @@
 <link rel="shortcut icon" type="image/png" href="favicon.png">
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+      .progress-circle {
+   font-size: 20px;
+   margin: 20px;
+   position: relative; /* so that children can be absolutely positioned */
+   padding: 0;
+   width: 5em;
+   height: 5em;
+   background-color: #F2E9E1;
+   border-radius: 50%;
+   line-height: 5em;
+}
+
+.progress-circle:after{
+    border: none;
+    position: absolute;
+    top: 0.35em;
+    left: 0.35em;
+    text-align: center;
+    display: block;
+    border-radius: 50%;
+    width: 4.3em;
+    height: 4.3em;
+    background-color: white;
+    content: " ";
+}
+/* Text inside the control */
+.progress-circle span {
+    position: absolute;
+    line-height: 5em;
+    width: 5em;
+    text-align: center;
+    display: block;
+    color: #53777A;
+    z-index: 2;
+}
+.left-half-clipper {
+   /* a round circle */
+   border-radius: 50%;
+   width: 5em;
+   height: 5em;
+   position: absolute; /* needed for clipping */
+   clip: rect(0, 5em, 5em, 2.5em); /* clips the whole left half*/
+}
+/* when p>50, don't clip left half*/
+.progress-circle.over180 .left-half-clipper {
+   clip: rect(auto,auto,auto,auto);
+}
+.value-bar {
+   /*This is an overlayed square, that is made round with the border radius,
+   then it is cut to display only the left half, then rotated clockwise
+   to escape the outer clipping path.*/
+   position: absolute; /*needed for clipping*/
+   clip: rect(0, 2.5em, 5em, 0);
+   width: 5em;
+   height: 5em;
+   border-radius: 50%;
+   border: 0.45em solid #2AABC1; /*The border is 0.35 but making it larger removes visual artifacts */
+   /*background-color: #4D642D;*/ /* for debug */
+   box-sizing: border-box;
+
+}
+/* Progress bar filling the whole right half for values above 50% */
+.progress-circle.over180 .first180-bar {
+   /*Progress bar for the first 50%, filling the whole right half*/
+   position: absolute; /*needed for clipping*/
+   clip: rect(0, 5em, 5em, 2.5em);
+   background-color: #2AABC1;
+   border-radius: 50%;
+   width: 5em;
+   height: 5em;
+}
+.progress-circle:not(.over180) .first180-bar{ display: none; }
+
+
+/* Progress bar rotation position */
+.progress-circle.p0 .value-bar { display: none; }
+.progress-circle.p1 .value-bar { transform: rotate(1.2deg); }
+.progress-circle.p2 .value-bar { transform: rotate(2.4deg); }
+.progress-circle.p3 .value-bar { transform: rotate(3.6deg); }
+.progress-circle.p4 .value-bar { transform: rotate(4.8deg); }
+.progress-circle.p5 .value-bar { transform: rotate(6.0deg); }
+.progress-circle.p6 .value-bar { transform: rotate(7.2deg); }
+.progress-circle.p7 .value-bar { transform: rotate(8.4deg); }
+.progress-circle.p8 .value-bar { transform: rotate(9.6deg); }
+.progress-circle.p9 .value-bar { transform: rotate(10.8deg); }
+.progress-circle.p10 .value-bar { transform: rotate(12.0deg); }
+.progress-circle.p11 .value-bar { transform: rotate(13.2deg); }
+.progress-circle.p12 .value-bar { transform: rotate(14.4deg); }
+.progress-circle.p13 .value-bar { transform: rotate(15.6deg); }
+.progress-circle.p14 .value-bar { transform: rotate(16.8deg); }
+.progress-circle.p15 .value-bar { transform: rotate(18.0deg); }
+.progress-circle.p16 .value-bar { transform: rotate(19.2deg); }
+.progress-circle.p17 .value-bar { transform: rotate(20.4deg); }
+.progress-circle.p18 .value-bar { transform: rotate(21.6deg); }
+.progress-circle.p19 .value-bar { transform: rotate(22.8deg); }
+.progress-circle.p20 .value-bar { transform: rotate(24.0deg); }
+.progress-circle.p21 .value-bar { transform: rotate(25.2deg); }
+.progress-circle.p22 .value-bar { transform: rotate(26.4deg); }
+.progress-circle.p23 .value-bar { transform: rotate(27.6deg); }
+.progress-circle.p24 .value-bar { transform: rotate(28.8deg); }
+.progress-circle.p25 .value-bar { transform: rotate(30.0deg); }
+.progress-circle.p26 .value-bar { transform: rotate(31.2deg); }
+.progress-circle.p27 .value-bar { transform: rotate(32.4deg); }
+.progress-circle.p28 .value-bar { transform: rotate(33.6deg); }
+.progress-circle.p29 .value-bar { transform: rotate(34.8deg); }
+.progress-circle.p30 .value-bar { transform: rotate(36.0deg); }
+.progress-circle.p31 .value-bar { transform: rotate(37.2deg); }
+.progress-circle.p32 .value-bar { transform: rotate(38.4deg); }
+.progress-circle.p33 .value-bar { transform: rotate(39.6deg); }
+.progress-circle.p34 .value-bar { transform: rotate(40.8deg); }
+.progress-circle.p35 .value-bar { transform: rotate(42.0deg); }
+.progress-circle.p36 .value-bar { transform: rotate(43.2deg); }
+.progress-circle.p37 .value-bar { transform: rotate(44.4deg); }
+.progress-circle.p38 .value-bar { transform: rotate(45.6deg); }
+.progress-circle.p39 .value-bar { transform: rotate(46.8deg); }
+.progress-circle.p40 .value-bar { transform: rotate(48.0deg); }
+.progress-circle.p41 .value-bar { transform: rotate(49.2deg); }
+.progress-circle.p42 .value-bar { transform: rotate(50.4deg); }
+.progress-circle.p43 .value-bar { transform: rotate(51.6deg); }
+.progress-circle.p44 .value-bar { transform: rotate(52.8deg); }
+.progress-circle.p45 .value-bar { transform: rotate(54.0deg); }
+.progress-circle.p46 .value-bar { transform: rotate(55.2deg); }
+.progress-circle.p47 .value-bar { transform: rotate(56.4deg); }
+.progress-circle.p48 .value-bar { transform: rotate(57.6deg); }
+.progress-circle.p49 .value-bar { transform: rotate(58.8deg); }
+.progress-circle.p50 .value-bar { transform: rotate(60.0deg); }
+.progress-circle.p51 .value-bar { transform: rotate(61.2deg); }
+.progress-circle.p52 .value-bar { transform: rotate(62.4deg); }
+.progress-circle.p53 .value-bar { transform: rotate(63.6deg); }
+.progress-circle.p54 .value-bar { transform: rotate(64.8deg); }
+.progress-circle.p55 .value-bar { transform: rotate(66.0deg); }
+.progress-circle.p56 .value-bar { transform: rotate(67.2deg); }
+.progress-circle.p57 .value-bar { transform: rotate(68.4deg); }
+.progress-circle.p58 .value-bar { transform: rotate(69.6deg); }
+.progress-circle.p59 .value-bar { transform: rotate(70.8deg); }
+.progress-circle.p60 .value-bar { transform: rotate(72.0deg); }
+.progress-circle.p61 .value-bar { transform: rotate(73.2deg); }
+.progress-circle.p62 .value-bar { transform: rotate(74.4deg); }
+.progress-circle.p63 .value-bar { transform: rotate(75.6deg); }
+.progress-circle.p64 .value-bar { transform: rotate(76.8deg); }
+.progress-circle.p65 .value-bar { transform: rotate(78.0deg); }
+.progress-circle.p66 .value-bar { transform: rotate(79.2deg); }
+.progress-circle.p67 .value-bar { transform: rotate(80.4deg); }
+.progress-circle.p68 .value-bar { transform: rotate(81.6deg); }
+.progress-circle.p69 .value-bar { transform: rotate(82.8deg); }
+.progress-circle.p70 .value-bar { transform: rotate(84.0deg); }
+.progress-circle.p71 .value-bar { transform: rotate(85.2deg); }
+.progress-circle.p72 .value-bar { transform: rotate(86.4deg); }
+.progress-circle.p73 .value-bar { transform: rotate(87.6deg); }
+.progress-circle.p74 .value-bar { transform: rotate(88.8deg); }
+.progress-circle.p75 .value-bar { transform: rotate(90.0deg); }
+.progress-circle.p76 .value-bar { transform: rotate(91.2deg); }
+.progress-circle.p77 .value-bar { transform: rotate(92.4deg); }
+.progress-circle.p78 .value-bar { transform: rotate(93.6deg); }
+.progress-circle.p79 .value-bar { transform: rotate(94.8deg); }
+.progress-circle.p80 .value-bar { transform: rotate(96.0deg); }
+.progress-circle.p81 .value-bar { transform: rotate(97.2deg); }
+.progress-circle.p82 .value-bar { transform: rotate(98.4deg); }
+.progress-circle.p83 .value-bar { transform: rotate(99.6deg); }
+.progress-circle.p84 .value-bar { transform: rotate(100.8deg); }
+.progress-circle.p85 .value-bar { transform: rotate(102.0deg); }
+.progress-circle.p86 .value-bar { transform: rotate(103.2deg); }
+.progress-circle.p87 .value-bar { transform: rotate(104.4deg); }
+.progress-circle.p88 .value-bar { transform: rotate(105.6deg); }
+.progress-circle.p89 .value-bar { transform: rotate(106.8deg); }
+.progress-circle.p90 .value-bar { transform: rotate(108.0deg); }
+.progress-circle.p91 .value-bar { transform: rotate(109.2deg); }
+.progress-circle.p92 .value-bar { transform: rotate(110.4deg); }
+.progress-circle.p93 .value-bar { transform: rotate(111.6deg); }
+.progress-circle.p94 .value-bar { transform: rotate(112.8deg); }
+.progress-circle.p95 .value-bar { transform: rotate(114.0deg); }
+.progress-circle.p96 .value-bar { transform: rotate(115.2deg); }
+.progress-circle.p97 .value-bar { transform: rotate(116.4deg); }
+.progress-circle.p98 .value-bar { transform: rotate(117.6deg); }
+.progress-circle.p99 .value-bar { transform: rotate(118.8deg); }
+.progress-circle.p100 .value-bar { transform: rotate(120.0deg); }
+.progress-circle.p101 .value-bar { transform: rotate(121.2deg); }
+.progress-circle.p102 .value-bar { transform: rotate(122.4deg); }
+.progress-circle.p103 .value-bar { transform: rotate(123.6deg); }
+.progress-circle.p104 .value-bar { transform: rotate(124.8deg); }
+.progress-circle.p105 .value-bar { transform: rotate(126.0deg); }
+.progress-circle.p106 .value-bar { transform: rotate(127.2deg); }
+.progress-circle.p107 .value-bar { transform: rotate(128.4deg); }
+.progress-circle.p108 .value-bar { transform: rotate(129.6deg); }
+.progress-circle.p109 .value-bar { transform: rotate(130.8deg); }
+.progress-circle.p110 .value-bar { transform: rotate(132.0deg); }
+.progress-circle.p111 .value-bar { transform: rotate(133.2deg); }
+.progress-circle.p112 .value-bar { transform: rotate(134.4deg); }
+.progress-circle.p113 .value-bar { transform: rotate(135.6deg); }
+.progress-circle.p114 .value-bar { transform: rotate(136.8deg); }
+.progress-circle.p115 .value-bar { transform: rotate(138.0deg); }
+.progress-circle.p116 .value-bar { transform: rotate(139.2deg); }
+.progress-circle.p117 .value-bar { transform: rotate(140.4deg); }
+.progress-circle.p118 .value-bar { transform: rotate(141.6deg); }
+.progress-circle.p119 .value-bar { transform: rotate(142.8deg); }
+.progress-circle.p120 .value-bar { transform: rotate(144.0deg); }
+.progress-circle.p121 .value-bar { transform: rotate(145.2deg); }
+.progress-circle.p122 .value-bar { transform: rotate(146.4deg); }
+.progress-circle.p123 .value-bar { transform: rotate(147.6deg); }
+.progress-circle.p124 .value-bar { transform: rotate(148.8deg); }
+.progress-circle.p125 .value-bar { transform: rotate(150.0deg); }
+.progress-circle.p126 .value-bar { transform: rotate(151.2deg); }
+.progress-circle.p127 .value-bar { transform: rotate(152.4deg); }
+.progress-circle.p128 .value-bar { transform: rotate(153.6deg); }
+.progress-circle.p129 .value-bar { transform: rotate(154.8deg); }
+.progress-circle.p130 .value-bar { transform: rotate(156.0deg); }
+.progress-circle.p131 .value-bar { transform: rotate(157.2deg); }
+.progress-circle.p132 .value-bar { transform: rotate(158.4deg); }
+.progress-circle.p133 .value-bar { transform: rotate(159.6deg); }
+.progress-circle.p134 .value-bar { transform: rotate(160.8deg); }
+.progress-circle.p135 .value-bar { transform: rotate(162.0deg); }
+.progress-circle.p136 .value-bar { transform: rotate(163.2deg); }
+.progress-circle.p137 .value-bar { transform: rotate(164.4deg); }
+.progress-circle.p138 .value-bar { transform: rotate(165.6deg); }
+.progress-circle.p139 .value-bar { transform: rotate(166.8deg); }
+.progress-circle.p140 .value-bar { transform: rotate(168.0deg); }
+.progress-circle.p141 .value-bar { transform: rotate(169.2deg); }
+.progress-circle.p142 .value-bar { transform: rotate(170.4deg); }
+.progress-circle.p143 .value-bar { transform: rotate(171.6deg); }
+.progress-circle.p144 .value-bar { transform: rotate(172.8deg); }
+.progress-circle.p145 .value-bar { transform: rotate(174.0deg); }
+.progress-circle.p146 .value-bar { transform: rotate(175.2deg); }
+.progress-circle.p147 .value-bar { transform: rotate(176.4deg); }
+.progress-circle.p148 .value-bar { transform: rotate(177.6deg); }
+.progress-circle.p149 .value-bar { transform: rotate(178.8deg); }
+.progress-circle.p150 .value-bar { transform: rotate(180.0deg); }
+.progress-circle.p151 .value-bar { transform: rotate(181.2deg); }
+.progress-circle.p152 .value-bar { transform: rotate(182.4deg); }
+.progress-circle.p153 .value-bar { transform: rotate(183.6deg); }
+.progress-circle.p154 .value-bar { transform: rotate(184.8deg); }
+.progress-circle.p155 .value-bar { transform: rotate(186.0deg); }
+.progress-circle.p156 .value-bar { transform: rotate(187.2deg); }
+.progress-circle.p157 .value-bar { transform: rotate(188.4deg); }
+.progress-circle.p158 .value-bar { transform: rotate(189.6deg); }
+.progress-circle.p159 .value-bar { transform: rotate(190.8deg); }
+.progress-circle.p160 .value-bar { transform: rotate(192.0deg); }
+.progress-circle.p161 .value-bar { transform: rotate(193.2deg); }
+.progress-circle.p162 .value-bar { transform: rotate(194.4deg); }
+.progress-circle.p163 .value-bar { transform: rotate(195.6deg); }
+.progress-circle.p164 .value-bar { transform: rotate(196.8deg); }
+.progress-circle.p165 .value-bar { transform: rotate(198.0deg); }
+.progress-circle.p166 .value-bar { transform: rotate(199.2deg); }
+.progress-circle.p167 .value-bar { transform: rotate(200.4deg); }
+.progress-circle.p168 .value-bar { transform: rotate(201.6deg); }
+.progress-circle.p169 .value-bar { transform: rotate(202.8deg); }
+.progress-circle.p170 .value-bar { transform: rotate(204.0deg); }
+.progress-circle.p171 .value-bar { transform: rotate(205.2deg); }
+.progress-circle.p172 .value-bar { transform: rotate(206.4deg); }
+.progress-circle.p173 .value-bar { transform: rotate(207.6deg); }
+.progress-circle.p174 .value-bar { transform: rotate(208.8deg); }
+.progress-circle.p175 .value-bar { transform: rotate(210.0deg); }
+.progress-circle.p176 .value-bar { transform: rotate(211.2deg); }
+.progress-circle.p177 .value-bar { transform: rotate(212.4deg); }
+.progress-circle.p178 .value-bar { transform: rotate(213.6deg); }
+.progress-circle.p179 .value-bar { transform: rotate(214.8deg); }
+.progress-circle.p180 .value-bar { transform: rotate(216.0deg); }
+.progress-circle.p181 .value-bar { transform: rotate(217.2deg); }
+.progress-circle.p182 .value-bar { transform: rotate(218.4deg); }
+.progress-circle.p183 .value-bar { transform: rotate(219.6deg); }
+.progress-circle.p184 .value-bar { transform: rotate(220.8deg); }
+.progress-circle.p185 .value-bar { transform: rotate(222.0deg); }
+.progress-circle.p186 .value-bar { transform: rotate(223.2deg); }
+.progress-circle.p187 .value-bar { transform: rotate(224.4deg); }
+.progress-circle.p188 .value-bar { transform: rotate(225.6deg); }
+.progress-circle.p189 .value-bar { transform: rotate(226.8deg); }
+.progress-circle.p190 .value-bar { transform: rotate(228.0deg); }
+.progress-circle.p191 .value-bar { transform: rotate(229.2deg); }
+.progress-circle.p192 .value-bar { transform: rotate(230.4deg); }
+.progress-circle.p193 .value-bar { transform: rotate(231.6deg); }
+.progress-circle.p194 .value-bar { transform: rotate(232.8deg); }
+.progress-circle.p195 .value-bar { transform: rotate(234.0deg); }
+.progress-circle.p196 .value-bar { transform: rotate(235.2deg); }
+.progress-circle.p197 .value-bar { transform: rotate(236.4deg); }
+.progress-circle.p198 .value-bar { transform: rotate(237.6deg); }
+.progress-circle.p199 .value-bar { transform: rotate(238.8deg); }
+.progress-circle.p200 .value-bar { transform: rotate(240.0deg); }
+.progress-circle.p201 .value-bar { transform: rotate(241.2deg); }
+.progress-circle.p202 .value-bar { transform: rotate(242.4deg); }
+.progress-circle.p203 .value-bar { transform: rotate(243.6deg); }
+.progress-circle.p204 .value-bar { transform: rotate(244.8deg); }
+.progress-circle.p205 .value-bar { transform: rotate(246.0deg); }
+.progress-circle.p206 .value-bar { transform: rotate(247.2deg); }
+.progress-circle.p207 .value-bar { transform: rotate(248.4deg); }
+.progress-circle.p208 .value-bar { transform: rotate(249.6deg); }
+.progress-circle.p209 .value-bar { transform: rotate(250.8deg); }
+.progress-circle.p210 .value-bar { transform: rotate(252.0deg); }
+.progress-circle.p211 .value-bar { transform: rotate(253.2deg); }
+.progress-circle.p212 .value-bar { transform: rotate(254.4deg); }
+.progress-circle.p213 .value-bar { transform: rotate(255.6deg); }
+.progress-circle.p214 .value-bar { transform: rotate(256.8deg); }
+.progress-circle.p215 .value-bar { transform: rotate(258.0deg); }
+.progress-circle.p216 .value-bar { transform: rotate(259.2deg); }
+.progress-circle.p217 .value-bar { transform: rotate(260.4deg); }
+.progress-circle.p218 .value-bar { transform: rotate(261.6deg); }
+.progress-circle.p219 .value-bar { transform: rotate(262.8deg); }
+.progress-circle.p220 .value-bar { transform: rotate(264.0deg); }
+.progress-circle.p221 .value-bar { transform: rotate(265.2deg); }
+.progress-circle.p222 .value-bar { transform: rotate(266.4deg); }
+.progress-circle.p223 .value-bar { transform: rotate(267.6deg); }
+.progress-circle.p224 .value-bar { transform: rotate(268.8deg); }
+.progress-circle.p225 .value-bar { transform: rotate(270.0deg); }
+.progress-circle.p226 .value-bar { transform: rotate(271.2deg); }
+.progress-circle.p227 .value-bar { transform: rotate(272.4deg); }
+.progress-circle.p228 .value-bar { transform: rotate(273.6deg); }
+.progress-circle.p229 .value-bar { transform: rotate(274.8deg); }
+.progress-circle.p230 .value-bar { transform: rotate(276.0deg); }
+.progress-circle.p231 .value-bar { transform: rotate(277.2deg); }
+.progress-circle.p232 .value-bar { transform: rotate(278.4deg); }
+.progress-circle.p233 .value-bar { transform: rotate(279.6deg); }
+.progress-circle.p234 .value-bar { transform: rotate(280.8deg); }
+.progress-circle.p235 .value-bar { transform: rotate(282.0deg); }
+.progress-circle.p236 .value-bar { transform: rotate(283.2deg); }
+.progress-circle.p237 .value-bar { transform: rotate(284.4deg); }
+.progress-circle.p238 .value-bar { transform: rotate(285.6deg); }
+.progress-circle.p239 .value-bar { transform: rotate(286.8deg); }
+.progress-circle.p240 .value-bar { transform: rotate(288.0deg); }
+.progress-circle.p241 .value-bar { transform: rotate(289.2deg); }
+.progress-circle.p242 .value-bar { transform: rotate(290.4deg); }
+.progress-circle.p243 .value-bar { transform: rotate(291.6deg); }
+.progress-circle.p244 .value-bar { transform: rotate(292.8deg); }
+.progress-circle.p245 .value-bar { transform: rotate(294.0deg); }
+.progress-circle.p246 .value-bar { transform: rotate(295.2deg); }
+.progress-circle.p247 .value-bar { transform: rotate(296.4deg); }
+.progress-circle.p248 .value-bar { transform: rotate(297.6deg); }
+.progress-circle.p249 .value-bar { transform: rotate(298.8deg); }
+.progress-circle.p250 .value-bar { transform: rotate(300.0deg); }
+.progress-circle.p251 .value-bar { transform: rotate(301.2deg); }
+.progress-circle.p252 .value-bar { transform: rotate(302.4deg); }
+.progress-circle.p253 .value-bar { transform: rotate(303.6deg); }
+.progress-circle.p254 .value-bar { transform: rotate(304.8deg); }
+.progress-circle.p255 .value-bar { transform: rotate(306.0deg); }
+.progress-circle.p256 .value-bar { transform: rotate(307.2deg); }
+.progress-circle.p257 .value-bar { transform: rotate(308.4deg); }
+.progress-circle.p258 .value-bar { transform: rotate(309.6deg); }
+.progress-circle.p259 .value-bar { transform: rotate(310.8deg); }
+.progress-circle.p260 .value-bar { transform: rotate(312.0deg); }
+.progress-circle.p261 .value-bar { transform: rotate(313.2deg); }
+.progress-circle.p262 .value-bar { transform: rotate(314.4deg); }
+.progress-circle.p263 .value-bar { transform: rotate(315.6deg); }
+.progress-circle.p264 .value-bar { transform: rotate(316.8deg); }
+.progress-circle.p265 .value-bar { transform: rotate(318.0deg); }
+.progress-circle.p266 .value-bar { transform: rotate(319.2deg); }
+.progress-circle.p267 .value-bar { transform: rotate(320.4deg); }
+.progress-circle.p268 .value-bar { transform: rotate(321.6deg); }
+.progress-circle.p269 .value-bar { transform: rotate(322.8deg); }
+.progress-circle.p270 .value-bar { transform: rotate(324.0deg); }
+.progress-circle.p271 .value-bar { transform: rotate(325.2deg); }
+.progress-circle.p272 .value-bar { transform: rotate(326.4deg); }
+.progress-circle.p273 .value-bar { transform: rotate(327.6deg); }
+.progress-circle.p274 .value-bar { transform: rotate(328.8deg); }
+.progress-circle.p275 .value-bar { transform: rotate(330.0deg); }
+.progress-circle.p276 .value-bar { transform: rotate(331.2deg); }
+.progress-circle.p277 .value-bar { transform: rotate(332.4deg); }
+.progress-circle.p278 .value-bar { transform: rotate(333.6deg); }
+.progress-circle.p279 .value-bar { transform: rotate(334.8deg); }
+.progress-circle.p280 .value-bar { transform: rotate(336.0deg); }
+.progress-circle.p281 .value-bar { transform: rotate(337.2deg); }
+.progress-circle.p282 .value-bar { transform: rotate(338.4deg); }
+.progress-circle.p283 .value-bar { transform: rotate(339.6deg); }
+.progress-circle.p284 .value-bar { transform: rotate(340.8deg); }
+.progress-circle.p285 .value-bar { transform: rotate(342.0deg); }
+.progress-circle.p286 .value-bar { transform: rotate(343.2deg); }
+.progress-circle.p287 .value-bar { transform: rotate(344.4deg); }
+.progress-circle.p288 .value-bar { transform: rotate(345.6deg); }
+.progress-circle.p289 .value-bar { transform: rotate(346.8deg); }
+.progress-circle.p290 .value-bar { transform: rotate(348.0deg); }
+.progress-circle.p291 .value-bar { transform: rotate(349.2deg); }
+.progress-circle.p292 .value-bar { transform: rotate(350.4deg); }
+.progress-circle.p293 .value-bar { transform: rotate(351.6deg); }
+.progress-circle.p294 .value-bar { transform: rotate(352.8deg); }
+.progress-circle.p295 .value-bar { transform: rotate(354.0deg); }
+.progress-circle.p296 .value-bar { transform: rotate(355.2deg); }
+.progress-circle.p297 .value-bar { transform: rotate(356.4deg); }
+.progress-circle.p298 .value-bar { transform: rotate(357.6deg); }
+.progress-circle.p299 .value-bar { transform: rotate(358.8deg); }
+.progress-circle.p300 .value-bar { transform: rotate(360.0deg); }
 </style>
 {% endblock %}
 {% block body %}
@@ -69,7 +445,11 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                 <div class="card-header"><h5>Instructions : {{task_object.instructions}}</h5></div>
                 <div class="card-header"><h5>Task Type : {{task_object.taskType}}</h5></div>
                 {% if data_instance_available %}
-                <div class="card-header"><h5>COMPLETE WITHIN : <p id="time_left"></p></h5></div>
+                <div class="card-header">
+                    <h5>COMPLETE WITHIN : </h5>
+                    <div id="progress_circle">
+                    </div>
+                </div>
                 {% load static %}
                 <div class="card-body"><img max-width="420" max-height="420" src="{{ data_instance.media.url }}" alt="{{ data_instance.media.url }}"></div>
                 <div class="card-body">
@@ -141,16 +521,30 @@ var x = setInterval(function() {
   var distance = countDownDate - now;
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  var output = '<div class="progress-circle ';
 
-  document.getElementById("time_left").innerHTML = minutes + "m " + seconds + "s ";
+  if (distance >150000) {
+    output += 'over180 p'+ Math.floor(distance/1000)+'"> <span style="color:';
+  } else {
+    output += ' p'+ Math.floor(distance/1000)+'"> <span style="color:';
+  }
+
+  if (distance < 10000) {
+    output += 'red;">';
+  } else {
+    output += 'black;">';
+  }
+
+  if (distance > 60000) {
+    output += minutes + 'm ' + seconds + 's </span> <div class="left-half-clipper"> <div class="first180-bar"></div> <div class="value-bar"></div> </div> </div>';;
+  } else {
+    output += seconds + 's </span> <div class="left-half-clipper"> <div class="first180-bar"></div> <div class="value-bar"></div> </div> </div>';
+  }
+  document.getElementById("progress_circle").innerHTML = output;
 
   if (distance < 1000) {
     clearInterval(x);
     location.replace("/DoDataAnnotationTask/StopAnnotating?task_id={{task_id}}&viewing_data_instance={{data_instance.media}}");
-  }
-
-    if (distance < 10000) {
-    document.getElementById("time_left").style.color = "red";
   }
 }, 1000);
 
