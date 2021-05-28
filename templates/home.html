@@ -9,14 +9,24 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
 <style>
 body {font-family: "Lato", sans-serif}
-
-@media(max-width:768px){
-html{font-size:12px}
+@media(orientation:portrait){
+  @media(max-width:768px){
+    html{font-size:12px}
+  }
+  @media(max-width:576px){
+    html{font-size:9px}
+  }
 }
 
-@media(max-width:576px){
-html{font-size:9px}
+@media(orientation:landscape){
+  @media(max-height:768px){
+    html{font-size:12px}
+  }
+  @media(max-height:400px){
+    html{font-size:9px}
+  }
 }
+
 .mySlides {display: none}
 </style>
 {% endblock %}
@@ -33,15 +43,18 @@ html{font-size:9px}
 <!-- Page content -->
 <div class="w3-content home-main">
 
+  <div class="home-image-container">
   <!-- Automatic Slideshow Images -->
-  <div class="w3-display-container w3-center">
-    <img src="{% static 'img/img1.jpg' %}" style="width:80%">
+  <div class="w3-display-container w3-center home-image">
+    <img src="{% static 'img/img1.jpg' %}" style="width:80%;margin-left:10%;margin-right:10%;">
   </div>
 
   <!-- The Band Section -->
   <div class="w3-container w3-content w3-center cdap-content" style="max-width:800px" id="band">
     <h2 class="w3-wide">CDAP</h2>
     <p class="w3-justify">We provide a platform to connect annotators with researchers. To annotate your data sets and to earn by annotating data sets, simply register in our site. </p>
+  </div>
+
   </div>
 
   <!-- The Tour Section -->
