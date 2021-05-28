@@ -460,6 +460,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                 <div class="card-header">
                     <h5>COMPLETE WITHIN : </h5>
                     <div id="progress_circle">
+                          <div class="progress-circle over180 p300"> <span style="color:black;"> 5 m 0s </span> <div class="left-half-clipper"> <div class="first180-bar"></div> <div class="value-bar"></div> </div> </div>
                     </div>
                 </div>
                 {% load static %}
@@ -535,7 +536,7 @@ function w3_close() {
 
 var msec = Date.parse(new Date())+302000;
 var a = new Date(msec)
-var countDownDate = a.getTime();
+var countDownDate = a.getTime()-1000;
 
 var x = setInterval(function() {
   var now = new Date().getTime();
