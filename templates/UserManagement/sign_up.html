@@ -38,15 +38,15 @@
 	<main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
     <div class="container">
       <div class="card login-card">
-        <div class="row no-gutters">
-          <div class="col-md-5">
+        <div class="row no-gutters landscape-container">
+          <div class="col-md-5 image-container">
             <img src="{% static 'img/login.jpg' %}" alt="login" class="login-card-img">
           </div>
-          <div class="col-md-7">
+          <div class="col-md-7 form-container">
             <div class="card-body">
-              <div class="brand-wrapper">
-                <!--img src="assets/images/logo.svg" alt="logo" class="logo"-->
-              </div>
+              <!--<div class="brand-wrapper">
+                &lt;!&ndash;img src="assets/images/logo.svg" alt="logo" class="logo"&ndash;&gt;
+              </div>-->
               <p class="login-card-description">Sign up to create your account</p>
               <p style="font_color:red">{{form.errors}}</p>
               <form method="POST" action="{% url 'UserManagement:sign_up' %}">
