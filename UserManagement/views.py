@@ -12,8 +12,10 @@ from .filters import ProfileFilter
 from .forms import ProfileForm  # RateForm
 from .models import Profile, ContributorTask, Review
 from django.contrib import messages
-from CreateTask.models import Task,TestResult,AnnotationTest
+from CreateTask.models import Task, TestResult, AnnotationTest, MediaDataInstance
 from .decorators import unauthenticated_user, allowed_user
+from DoDataAnnotationTask.models import DataAnnotationResult
+from django.db import DatabaseError, transaction
 
 
 def sign_in(request):
@@ -312,6 +314,22 @@ def view_my_tasks(request):
     user_text_data_annotation_tasks = []
     user_image_data_annotation_tasks = []
     for user_task in all_user_tasks:
+        task_id = user_task.Task.id
+        data_instance_annotation_times = int(Task.objects.get(id=task_id).requiredNumofAnnotations)
+        annotated_data_instances = DataAnnotationResult.objects.filter(TaskID_id=task_id, UserID=request.session['user_id']).order_by(
+            '-LastUpdate')
+        data_instances_to_exclude = []
+        for i in annotated_data_instances:
+            data_instances_to_exclude += [i.DataInstance.id]
+        with transaction.atomic():
+            data_annotation = MediaDataInstance.objects.filter(taskID_id=task_id, IsViewing=False,
+                                                               NumberOfAnnotations__lt=data_instance_annotation_times).exclude(
+                id__in=data_instances_to_exclude)
+        if len(data_annotation)>0:
+            user_task.Task.user_can_contribute_more = "Yes"
+        else:
+            user_task.Task.user_can_contribute_more = "No"
+
         if user_task.Task.taskType == 'TextAnno':
             if len(user_task.Task.description) > 140:
                 user_task.Task.description1 = user_task.Task.description[0:140]
