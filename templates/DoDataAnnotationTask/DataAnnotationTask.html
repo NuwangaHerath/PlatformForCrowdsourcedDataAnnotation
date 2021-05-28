@@ -450,7 +450,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         <!-- Header -->
         <header class="w3-container" style="padding-top:22px">
         </header>
-        <div class="container">
+        <div class="container" style="padding-bottom:300px">
             <div class="card">
                 <div class="card-header"><h2>Task Title : {{task_object.title}}</h2></div>
                 <div class="card-header"><h5>Task Description : {{task_object.description}}</h5></div>
@@ -464,7 +464,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                     </div>
                 </div>
                 {% load static %}
-                <div class="card-body"><img max-width="420" max-height="420" src="{{ data_instance.media.url }}"
+                <div class="card-body"><img  height="200" src="{{ data_instance.media.url }}"
                                             alt="{{ data_instance.media.url }}"></div>
                 <div class="card-body">
                     <h5>Your answer</h5>
