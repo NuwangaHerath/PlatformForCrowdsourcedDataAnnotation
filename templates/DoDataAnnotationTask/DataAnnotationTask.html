@@ -457,15 +457,16 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                 <div class="card-header"><h5>Instructions : {{task_object.instructions}}</h5></div>
                 <div class="card-header"><h5>Task Type : {{task_object.taskType}}</h5></div>
                 {% if data_instance_available %}
-                <div class="card-header">
-                    <h5>COMPLETE WITHIN : </h5>
+                <div id="count_down_div" class="card-header">
+                    <h5 id="complete_within" style="color:black">COMPLETE WITHIN : </h5>
                     <div id="progress_circle">
                           <div class="progress-circle over180 p300"> <span style="color:black;"> 5 m 0s </span> <div class="left-half-clipper"> <div class="first180-bar"></div> <div class="value-bar"></div> </div> </div>
                     </div>
                 </div>
                 {% load static %}
-                <div class="card-body"><img  height="200" src="{{ data_instance.media.url }}"
-                                            alt="{{ data_instance.media.url }}"></div>
+                <div class="card-body">
+                    <img height="200" src="{{ data_instance.media.url }}" alt="{{ data_instance.media.url }}">
+                </div>
                 <div class="card-body">
                     <h5>Your answer</h5>
                     <form action="Task" method="POST">
@@ -480,7 +481,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                         <input type="hidden" name="DataInstance" value="{{data_instance.media}}">
                         <input type="hidden" name="task_id" value="{{task_id}}">
                         <input type="hidden" name="user_id" value="{{user_id}}">
-                        <button type="submit" class="btn btn-success"><h6>Submit</h6></button>
+                        <button id="submit_button" type="submit" class="btn btn-success"><h6>Submit</h6></button>
                     </form>
                 </div>
                 <div class="card-footer">
@@ -566,7 +567,12 @@ var x = setInterval(function() {
 
   if (distance < 1000) {
     clearInterval(x);
-    location.replace("/DoDataAnnotationTask/StopAnnotating?task_id={{task_id}}&viewing_data_instance={{data_instance.media}}");
+    document.getElementById("complete_within").innerHTML = "Allocated time for annotating this data instance has been exceeded.";
+    document.getElementById("complete_within").style.color = "red";
+    {% for data_class in data_classes %}
+        document.getElementById("{{data_class.cateogaryTag}}").disabled = true;
+    {% endfor %}
+    document.getElementById("submit_button").disabled = true;
   }
 }, 1000);
 
