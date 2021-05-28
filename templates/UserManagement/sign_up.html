@@ -8,6 +8,29 @@
   <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+
+<style>
+    @media(orientation:portrait){
+  @media(max-width:768px){
+    html{font-size:12px}
+  }
+  @media(max-width:576px){
+    html{font-size:9px}
+  }
+  @media(max-width:300px){
+    html{font-size:7px}
+  }
+}
+
+@media(orientation:landscape){
+  @media(max-height:768px){
+    html{font-size:12px}
+  }
+  @media(max-height:400px){
+    html{font-size:9px}
+  }
+}
+</style>
 {% endblock %}
 
 {% block body %}
