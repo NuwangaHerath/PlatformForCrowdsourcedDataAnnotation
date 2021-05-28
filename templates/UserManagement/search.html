@@ -10,6 +10,26 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/search.css' %}">
+
+<style>
+    @media(orientation:portrait){
+  @media(max-width:768px){
+    html{font-size:12px}
+  }
+  @media(max-width:576px){
+    html{font-size:9px}
+  }
+}
+
+@media(orientation:landscape){
+  @media(max-height:768px){
+    html{font-size:12px}
+  }
+  @media(max-height:400px){
+    html{font-size:9px}
+  }
+}
+</style>
 {% endblock %}
 
 {% block body %}
@@ -22,7 +42,7 @@
   </form></center>
 </div>
 
-<section id="team" class="pb-5">
+<section id="team" class="pb-5 container-section">
     <div class="container">
         <h5 class="section-title h1">CDAP MEMBERS</h5>
         <div class="row">
