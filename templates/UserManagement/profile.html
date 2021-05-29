@@ -60,13 +60,13 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
             <a href="{% url 'UserManagement:edit_profile' %}">Add some info</a>
 {% else %}
 <!-- Page Container -->
-<div class="w3-content w3-margin-top" style="max-width:1400px;">
+<div class="w3-content body-container">
 <h1>{{profile.first_name}} {{profile.last_name}}</h1>
   <!-- The Grid -->
-  <div class="w3-row-padding">
+  <div class="w3-row-padding row-container">
   
     <!-- Left Column -->
-    <div class="w3-third">
+    <div class="w3-third my-details">
     
       <div class="w3-white w3-text-grey w3-card-4">
         <div class="w3-display-container" style="align-content: center;"><br>
@@ -92,7 +92,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     </div>
 
     <!-- Right Column -->
-    <div class="w3-twothird">
+    <div class="w3-twothird my-tasks">
     
       <div class="w3-container w3-card w3-white w3-margin-bottom">
 
