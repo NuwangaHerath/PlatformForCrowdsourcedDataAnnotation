@@ -2,7 +2,7 @@
     border-radius: 3px 3px 0 0;
     overflow: hidden;
     position: relative;
-    height: 220px;
+    /*height: 220px;*/
     text-align: center;
     max-height: 100%;
 }
@@ -31,4 +31,39 @@
 
 .card-product .price-old {
     color: #999;
+}
+
+@media(max-width:576px){
+    .card-product{
+     max-width:350px;
+     margin:auto;
+    }
+
+    .card-product .info-wrap {
+    overflow: hidden;
+    padding: 10px;
+    border-top: 1px solid #eee;
+    max-height: 100%;
+    }
+
+    .card-product .bottom-wrap {
+    padding: 10px;
+    border-top: 1px solid #eee;
+    max-height: 100%;
+    }
+}
+
+@media(max-width:300px){
+    .card-product .info-wrap {
+    overflow: hidden;
+    padding: 5px;
+    border-top: 1px solid #eee;
+    max-height: 100%;
+    }
+
+    .card-product .bottom-wrap {
+    padding: 5px;
+    border-top: 1px solid #eee;
+    max-height: 100%;
+    }
 }
