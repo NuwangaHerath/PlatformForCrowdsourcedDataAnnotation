@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
 <link rel="shortcut icon" type="image/png" href="favicon.png">
   <style>
   body {
@@ -15,6 +16,25 @@
  background-color: #cccccc;
 }
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+
+
+    @media(orientation:portrait){
+  @media(max-width:768px){
+    html{font-size:12px}
+  }
+  @media(max-width:300px){
+    html{font-size:9px}
+  }
+}
+
+@media(orientation:landscape){
+  @media(max-height:768px){
+    html{font-size:12px}
+  }
+  @media(max-height:300px){
+    html{font-size:9px}
+  }
+}
 </style>
 {% endblock %}
 
@@ -25,7 +45,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   </ol>
 </nav>
 {% if user_text_data_annotation_tasks|length > 0 %}
-<div class="card">
+<div class="card my-tasks">
     <div class="card-header">Text Data Annotation Tasks</div>
     <div class="card-body">
         <table class="table table-hover">
@@ -81,7 +101,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 <br>
 {% if user_image_data_annotation_tasks|length > 0 %}
-<div class="card">
+<div class="card my-tasks">
     <div class="card-header">Image Data Annotation Tasks</div>
     <div class="card-body">
         <table class="table table-hover">
@@ -137,7 +157,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 <br>
 {% if user_text_data_generation_tasks|length > 0 %}
-<div class="card">
+<div class="card my-tasks">
     <div class="card-header">Text Data Generation Tasks</div>
     <div class="card-body">
         <table class="table table-hover">
@@ -193,7 +213,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 <br>
 {% if user_image_data_generation_tasks|length > 0 %}
-<div class="card">
+<div class="card my-tasks">
     <div class="card-header">Image Data Generation Tasks</div>
     <div class="card-body">
         <table class="table table-hover">
