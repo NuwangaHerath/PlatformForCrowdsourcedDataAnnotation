@@ -9,6 +9,24 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
 <style>
 body {font-family: "Lato", sans-serif}
+@media(orientation:portrait){
+  @media(max-width:768px){
+    html{font-size:12px}
+  }
+  @media(max-width:576px){
+    html{font-size:9px}
+  }
+}
+
+@media(orientation:landscape){
+  @media(max-height:768px){
+    html{font-size:12px}
+  }
+  @media(max-height:400px){
+    html{font-size:9px}
+  }
+}
+
 .mySlides {display: none}
 
 /* Create four equal columns that floats next to each other */
@@ -50,7 +68,7 @@ body {font-family: "Lato", sans-serif}
 
 
 <!-- Page content -->
-<div class="w3-content" style="max-width:2000px;margin-top:46px">
+<div class="w3-content home-main">
 
     <!-- testing slides -->
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">

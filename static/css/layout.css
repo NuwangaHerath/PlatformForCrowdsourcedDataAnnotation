@@ -1,3 +1,8 @@
+.body-container{
+    margin-top:12px;
+    max-width:1400px
+  }
+
 /* Dropdown Button */
 .dropbtn {
     background-color: #3498DB;
@@ -42,3 +47,43 @@
   
   /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
   .show {display:block;}
+
+  .profile-image{
+    width:400px;
+    aspect-ratio:1/1;
+    /*height:400px;
+    size:relative;*/
+    border-radius:50%;
+    max-width:100%;
+    padding-left:5%;
+    padding-right:2%;
+    position:relative;
+    left:50%;
+    transform:translateX(-50%);
+  }
+
+
+  @media(max-height:400px){
+  .body-container{
+    margin-top:5px;
+  }
+  }
+
+  @media(max-width:600px){
+  .profile-image{
+    width:250px;
+  }
+  }
+
+  @media(orientation:landscape) and (max-height:400px) and (min-width:400px) and (max-width:768px){
+        .row-container{
+            display:flex;
+
+        }
+        .my-details{
+            width:40%
+        }
+        .my-tasks{
+        width:60%;
+        }
+  }
