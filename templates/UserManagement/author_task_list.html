@@ -38,9 +38,9 @@
     <br> <h2 class="text-center">My Authored Tasks</h2>
     <hr>
     {% if all_author_tasks %}
-    <div class="row">
+    <div class="row row-wrapper">
     {% for task in all_author_tasks %}
-    <div class="col-sm-6 col-md-4">
+    <div class="col-sm-6 col-md-4 column-wrapper">
         <figure class="card card-product">
             {% if task.taskType == "ImageAnno" %}
             <div class="img-wrap"><img src="{% static 'img/img_type.png' %}"></div>

@@ -67,3 +67,13 @@
     max-height: 100%;
     }
 }
+
+@media(orientation:landscape) and (max-width:576px){
+    .row-wrapper{
+        display:flex;
+    }
+
+    .column-wrapper{
+        width:50% !important;
+    }
+}
