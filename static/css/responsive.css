@@ -143,5 +143,9 @@
 		.services-padding {
 	        padding: 15px;
         }
+
+        .my-tasks .card-body{
+            padding:0;
+        }
 	}
 }
