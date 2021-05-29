@@ -32,6 +32,24 @@ window.onclick = function(event) {
 </script>
 <style>
 html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+
+    @media(orientation:portrait){
+  @media(max-width:768px){
+    html{font-size:12px}
+  }
+  @media(max-width:576px){
+    html{font-size:9px}
+  }
+}
+
+@media(orientation:landscape){
+  @media(max-height:768px){
+    html{font-size:12px}
+  }
+  @media(max-height:400px){
+    html{font-size:9px}
+  }
+}
 </style>
 {% endblock %}
 
@@ -52,7 +70,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     
       <div class="w3-white w3-text-grey w3-card-4">
         <div class="w3-display-container" style="align-content: center;"><br>
-          <img src="{{profile.avatar.url}}" style="width:400px; height:400px; size: relative; border-radius:50%; max-width:100%; padding-left:5%; padding-right:2%;" alt="">
+          <img src="{{profile.avatar.url}}" class="profile-image" alt="">
         </div><br>
         <div class="w3-container">
             {% if profile.is_author %}
@@ -78,7 +96,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     
       <div class="w3-container w3-card w3-white w3-margin-bottom">
 
-        <div class="w3-container"><br>
+        <div class="w3-container" style="padding-left:0"><br>
         <div class="dropdown">
           <button onclick="myFunction()" class=" btn btn-primary btn-lg btn-block dropbtn">Tasks</button>
           <div id="myDropdown" class="dropdown-content">

@@ -42,3 +42,17 @@
   
   /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
   .show {display:block;}
+
+  .profile-image{
+    width:400px;
+    aspect-ratio:1/1;
+    /*height:400px;
+    size:relative;*/
+    border-radius:50%;
+    max-width:100%;
+    padding-left:5%;
+    padding-right:2%;
+    position:relative;
+    left:50%;
+    transform:translateX(-50%);
+  }
