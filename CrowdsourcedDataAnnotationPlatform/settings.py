@@ -23,7 +23,7 @@ SECRET_KEY = 'mgqr+xmp@v=y+6-ohs8t6cy9j841(j012agi=6$3r(-9(mf@cz'
 DEBUG = True
 
 #ALLOWED_HOSTS = ['104.197.54.228']
-ALLOWED_HOSTS = ['34.134.212.174']
+ALLOWED_HOSTS = ['34.134.212.174', '127.0.0.1']
 
 
 # Application definition
@@ -121,10 +121,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'crowdsourceddataannotationplatform',
-        'USER': 'sep',
+        'USER': 'root',
         'PASSWORD': 'sep.2020',
         'HOST':'localhost',
-        'PORT':'3308'
+        'PORT':'3306'
     }
 }
 
