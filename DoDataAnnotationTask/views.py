@@ -157,10 +157,9 @@ def skip_data_instance(request):
         try:
             with transaction.atomic():
                 if stop_viewing(request,task_id,viewing_data_instance):
-                    print('skip_data_instance1')
                     return redirect('/DoDataAnnotationTask/Task?skip_instance='+viewing_data_instance+'&task_id=' + str(task_id))
                 else:
-                    return HttpResponse('error')
+                    return redirect('/DoDataAnnotationTask/Task?task_id=' + str(task_id))
         except DatabaseError:
             print('DatabaseError in skip_data_instance()  Image data annotation')
             return redirect('/UserManagement/MyTasks/')
