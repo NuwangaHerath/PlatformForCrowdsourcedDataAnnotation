@@ -6,8 +6,27 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
 <style>
 body {font-family: "Lato", sans-serif}
+@media(orientation:portrait){
+  @media(max-width:768px){
+    html{font-size:12px}
+  }
+  @media(max-width:576px){
+    html{font-size:9px}
+  }
+}
+
+@media(orientation:landscape){
+  @media(max-height:768px){
+    html{font-size:12px}
+  }
+  @media(max-height:400px){
+    html{font-size:9px}
+  }
+}
+
 .mySlides {display: none}
 </style>
 {% endblock %}
@@ -22,33 +41,36 @@ body {font-family: "Lato", sans-serif}
 {% endfor %}
 
 <!-- Page content -->
-<div class="w3-content" style="max-width:2000px;margin-top:46px">
+<div class="w3-content home-main">
 
+  <div class="home-image-container">
   <!-- Automatic Slideshow Images -->
-  <div class="w3-display-container w3-center">
-    <img src="{% static 'img/img1.jpg' %}" style="width:80%">
+  <div class="w3-display-container w3-center home-image">
+    <img src="{% static 'img/img1.jpg' %}" style="width:80%;margin-left:10%;margin-right:10%;">
   </div>
 
   <!-- The Band Section -->
-  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
+  <div class="w3-container w3-content w3-center cdap-content" style="max-width:800px" id="band">
     <h2 class="w3-wide">CDAP</h2>
     <p class="w3-justify">We provide a platform to connect annotators with researchers. To annotate your data sets and to earn by annotating data sets, simply register in our site. </p>
   </div>
 
+  </div>
+
   <!-- The Tour Section -->
   <div class="w3-black" id="tour">
-    <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+    <div class="w3-container w3-content services-padding" style="max-width:800px">
       <h2 class="w3-wide w3-center">OUR SERVICES</h2>
-      <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
-        <div class="w3-third w3-margin-bottom">
-          <img src="{% static 'img/annotation.jpeg' %}" alt="" style="width:100%" class="w3-hover-opacity">
-          <div class="w3-container w3-white">
+      <div class="w3-row-padding row-our-services" style="margin:0 -16px">
+        <div class="w3-half w3-margin-bottom">
+          <img src="{% static 'img/annotation.jpeg' %}" alt="" class="w3-hover-opacity img-data-annogen">
+          <div class="w3-container w3-white cap">
             <p><b>Data annotation</b></p>
           </div>
         </div>
-        <div class="w3-third w3-margin-bottom">
-          <img src="{% static 'img/generation.jpg' %}" alt="Paris" style="width:100%" class="w3-hover-opacity">
-          <div class="w3-container w3-white">
+        <div class="w3-half w3-margin-bottom">
+          <img src="{% static 'img/generation.jpg' %}" alt="" class="w3-hover-opacity img-data-annogen">
+          <div class="w3-container w3-white cap">
             <p><b>Data Generation</b></p>
           </div>
         </div>
