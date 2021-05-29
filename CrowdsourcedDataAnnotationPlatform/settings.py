@@ -23,7 +23,7 @@ SECRET_KEY = 'mgqr+xmp@v=y+6-ohs8t6cy9j841(j012agi=6$3r(-9(mf@cz'
 DEBUG = True
 
 #ALLOWED_HOSTS = ['104.197.54.228']
-ALLOWED_HOSTS = ['34.134.212.174']
+ALLOWED_HOSTS = ['34.134.212.174', '127.0.0.1']
 
 
 # Application definition
@@ -124,7 +124,7 @@ DATABASES = {
         'USER': 'sep',
         'PASSWORD': 'sep.2020',
         'HOST':'localhost',
-        'PORT':'3308'
+        'PORT':'3306'
     }
 }
 
@@ -138,55 +138,6 @@ show tables;
 select * from createtask_mediadatainstance;  
 select * from createtask_textdatainstance; 
 
-SET GLOBAL event_scheduler = ON; -- enable event scheduler.
-SELECT @@event_scheduler;  -- check whether event scheduler is ON/OFF
-CREATE EVENT release_data_instances_mediadatainstance  -- create your event
-    ON SCHEDULE
-      EVERY 300 SECOND  -- run every 300 secs (5 Min)
-    DO
-      UPDATE crowdsourceddataannotationplatform.CreateTask_mediadatainstance SET IsViewing=False,WhoIsViewing=0 WHERE IsViewing=True AND LastUpdate<= DATE_SUB(NOW(), INTERVAL 5 MINUTE)-- update this table
-;
-      
-CREATE EVENT release_data_instances_textdatainstance  -- create your event
-    ON SCHEDULE
-      EVERY 300 SECOND  -- run every 300 secs (5 Min)
-    DO
-      UPDATE crowdsourceddataannotationplatform.CreateTask_textdatainstance SET IsViewing=False,WhoIsViewing=0 WHERE IsViewing=True AND LastUpdate<= DATE_SUB(NOW(), INTERVAL 5 MINUTE)-- update this table
-;
-delimiter //
-CREATE TRIGGER set_last_update_time_mediadatainstance_on_update
-    BEFORE UPDATE ON CreateTask_mediadatainstance
-    FOR EACH ROW
-    BEGIN
-    SET NEW.LastUpdate = NOW();
-    END; // 
-    delimiter ;
-    
-delimiter //
-CREATE TRIGGER set_last_update_time_mediadatainstance_on_insert
-    BEFORE INSERT ON CreateTask_mediadatainstance
-    FOR EACH ROW
-    BEGIN
-    SET NEW.LastUpdate = NOW();
-    END; // 
-    delimiter ;
-delimiter //
-CREATE TRIGGER set_last_update_time_textdatainstance_on_update
-    BEFORE UPDATE ON CreateTask_textdatainstance
-    FOR EACH ROW
-    BEGIN
-    SET NEW.LastUpdate = NOW();
-    END; // 
-    delimiter ;
-    
-delimiter //
-CREATE TRIGGER set_last_update_time_textdatainstance_on_insert
-    BEFORE INSERT ON CreateTask_textdatainstance
-    FOR EACH ROW
-    BEGIN
-    SET NEW.LastUpdate = NOW();
-    END; // 
-    delimiter ;
 """
 
 # Password validation
