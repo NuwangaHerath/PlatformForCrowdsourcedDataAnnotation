@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <link rel="shortcut icon" type="image/png" href="favicon.png">
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       .progress-circle {
@@ -387,26 +389,45 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 .progress-circle.p299 .value-bar { transform: rotate(358.8deg); }
 .progress-circle.p300 .value-bar { transform: rotate(360.0deg); }
 
+
+@media(orientation:portrait){
+  @media(max-width:768px){
+    html{font-size:12px}
+  }
+  @media(max-width:576px){
+    html{font-size:9px}
+  }
+}
+
+@media(orientation:landscape){
+  @media(max-height:768px){
+    html{font-size:12px}
+  }
+  @media(max-height:400px){
+    html{font-size:9px}
+  }
+}
+
 </style>
 {% endblock %}
 {% block body %}
 <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
+    <ol class="breadcrumb" style="margin-bottom:0">
         <li class="breadcrumb-item"><a href="/UserManagement/MyTasks/">My Tasks</a></li>
         <li class="breadcrumb-item active" aria-current="page">{{task_object.title}}</li>
     </ol>
 </nav>
 <div class="w3-light-grey">
     <!-- Top container -->
-    <div class="w3-bar w3-top w3-white w3-large" style="z-index:4">
-        <button class=" w3-button w3-hide-large w3-hover-none w3-hover-text-light-green" onclick="w3_open();"><i
+
+        <button class=" w3-button w3-hover-none w3-hover-text-light-green nav-annot-results-show" onclick="w3_open();"><i
                 class="fa fa-bars"></i> View Contribution
         </button>
-    </div>
+
     <!-- Contribution -->
-    <nav class="w3-sidebar w3-white " style="z-index:3;width:300px;" id="mySidebar"><br>
+    <nav class="w3-sidebar w3-white nav-annot-results" style="z-index:3;width:30%;" id="mySidebar"><br>
         <div class="w3-container w3-row">
-            <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
+            <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-dark-grey w3-hover-black nav-annot-results-show"
                onclick="w3_close()" title="close"><i class="fa fa-remove fa-fw"></i>Close</a></br>
             <div class="w3-col s8 w3-bar">
                 <span>Welcome, <strong>{{first_name}}</strong></span><br>
@@ -446,7 +467,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer"
          title="close side menu" id="myOverlay"></div>
     <!-- !PAGE CONTENT! margin-top:43px; -->
-    <div class="w3-main" style="margin-left:300px;margin-top:-15px;">
+    <div class="w3-main main-data-container" style="">
         <!-- Header -->
         <header class="w3-container" style="padding-top:22px">
         </header>

@@ -46,6 +46,11 @@
 	padding: 32px
 }
 
+.main-data-container{
+    margin-left:30% !important;
+    margin-top:-15px;
+}
+
 @media(max-width:890px){
     .carousel-text-wrapper-1{
         position: absolute;
@@ -92,7 +97,24 @@
 			transform: translateX(-50%);
 		}
 
+		.main-data-container{
+            margin-left:0 !important;
+            margin-top:-15px;
+        }
+
+        .nav-annot-results{
+            display:block;
+        }
+
 	}
+
+@media(min-width:600px){
+    .nav-annot-results-show{
+            visibility:hidden;
+        }
+}
+
+
 
 @media(max-width:576px){
     .our-service-wrapper{
@@ -114,6 +136,7 @@
         text-align: center;
     }
 }
+
 
 
 @media(max-width:400px){
