@@ -2,8 +2,6 @@
 *.log
 *.pot
 *.pyc
-*.py
-*.pyi
 __pycache__
 db.sqlite3
 media
@@ -29,7 +27,6 @@ media
 # Python # 
 *.py[cod] 
 *$py.class
-*.py
 
 # Distribution / packaging 
 .Python build/ 

@@ -7,7 +7,12 @@
 <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/layout.css' %}">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <script>
   /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
@@ -32,6 +37,24 @@ window.onclick = function(event) {
 </script>
 <style>
 html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+
+    @media(orientation:portrait){
+  @media(max-width:768px){
+    html{font-size:12px}
+  }
+  @media(max-width:576px){
+    html{font-size:9px}
+  }
+}
+
+@media(orientation:landscape){
+  @media(max-height:768px){
+    html{font-size:12px}
+  }
+  @media(max-height:400px){
+    html{font-size:9px}
+  }
+}
 </style>
 {% endblock %}
 
@@ -42,17 +65,17 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
             <a href="{% url 'UserManagement:edit_profile' %}">Add some info</a>
 {% else %}
 <!-- Page Container -->
-<div class="w3-content w3-margin-top" style="max-width:1400px;">
+<div class="w3-content body-container">
 <h1>{{profile.first_name}} {{profile.last_name}}</h1>
   <!-- The Grid -->
-  <div class="w3-row-padding">
+  <div class="w3-row-padding row-container">
   
     <!-- Left Column -->
-    <div class="w3-third">
+    <div class="w3-third my-details">
     
       <div class="w3-white w3-text-grey w3-card-4">
         <div class="w3-display-container" style="align-content: center;"><br>
-          <img src="{{profile.avatar.url}}" style="width:400px; height:400px; size: relative; border-radius:50%; max-width:100%; padding-left:5%; padding-right:2%;" alt="">
+          <img src="{{profile.avatar.url}}" class="profile-image" alt="">
         </div><br>
         <div class="w3-container">
             {% if profile.is_author %}
@@ -74,11 +97,11 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     </div>
 
     <!-- Right Column -->
-    <div class="w3-twothird">
+    <div class="w3-twothird my-tasks">
     
       <div class="w3-container w3-card w3-white w3-margin-bottom">
 
-        <div class="w3-container"><br>
+        <div class="w3-container" style="padding-left:0"><br>
         <div class="dropdown">
           <button onclick="myFunction()" class=" btn btn-primary btn-lg btn-block dropbtn">Tasks</button>
           <div id="myDropdown" class="dropdown-content">
