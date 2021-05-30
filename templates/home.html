@@ -6,22 +6,21 @@
 <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
 <style>
 body {font-family: "Lato", sans-serif}
-@media(orientation:portrait){
-  @media(max-width:768px){
+
+@media(max-width:768px){
     html{font-size:12px}
   }
-  @media(max-width:576px){
+
+@media(max-width:576px){
     html{font-size:9px}
   }
-}
+
 
 @media(orientation:landscape){
-  @media(max-height:768px){
-    html{font-size:12px}
-  }
+
   @media(max-height:400px){
     html{font-size:9px}
   }
@@ -71,7 +70,7 @@ body {font-family: "Lato", sans-serif}
 <div class="w3-content home-main">
 
     <!-- testing slides -->
-    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" data-interval="false">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
@@ -80,10 +79,10 @@ body {font-family: "Lato", sans-serif}
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="{% static 'img/home4.jpg' %}" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block"
-                     style="position: absolute;top: 28%;width: 70%;text-align: center;">
-                    <h1 style="font-size:60px;">CDAP</h1>
-                    <p style="font-size:35px;"><b>"We provide a platform to connect annotators with researchers. To
+                <div class="carousel-caption carousel-text-wrapper-1"
+                     style="">
+                    <h1 class="home-card-title"><b>CDAP</b></h1>
+                    <p class="home-card-content"><b>"We provide a platform to connect annotators with researchers. To
                         annotate
                         your data sets
                         and to earn by annotating data sets, simply register in our site."</b></p>
@@ -91,22 +90,22 @@ body {font-family: "Lato", sans-serif}
             </div>
             <div class="carousel-item">
                 <img src="{% static 'img/annotation1.jpg' %}" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block"
-                     style="position: absolute;top: 39%;width: 70%;text-align: center;">
+                <div class="carousel-caption carousel-text-wrapper"
+                     style="">
                     <div class="card text-white bg-success mb-3" style="max-width: 80rem;">
                         <div class="card-body">
-                            <h1 class="card-title">DATA ANNOTATION</h1>
+                            <h1 class="card-title home-card-title">DATA ANNOTATION</h1>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="{% static 'img/generation2.jpeg' %}" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block"
-                     style="position: absolute;top: 39%;width: 70%;text-align: center;">
+                <div class="carousel-caption carousel-text-wrapper"
+                     style="">
                     <div class="card text-white bg-primary mb-3" style="max-width: 80rem;">
                         <div class="card-body">
-                            <h1 class="card-title">DATA GENERATION</h1>
+                            <h1 class="card-title home-card-title">DATA GENERATION</h1>
                         </div>
                     </div>
                 </div>
@@ -124,8 +123,8 @@ body {font-family: "Lato", sans-serif}
     </div>
 
     <div class="row">
-        <div class="column">
-            <div class="card text-white bg-success mb-3" style="max-width: 26rem;">
+        <div class="column our-service-wrapper">
+            <div class="card text-white bg-success" style="">
                 <div class="card-header">
                     <h4 class="card-title">Image Data Annotation</h4>
                 </div>
@@ -135,8 +134,8 @@ body {font-family: "Lato", sans-serif}
                 </div>
             </div>
         </div>
-        <div class="column">
-            <div class="card text-white bg-danger mb-3" style="max-width: 26rem;">
+        <div class="column our-service-wrapper">
+            <div class="card text-white bg-danger" style="">
                 <div class="card-header">
                     <h4 class="card-title">Text Data Annotation</h4>
                 </div>
@@ -146,8 +145,8 @@ body {font-family: "Lato", sans-serif}
                 </div>
             </div>
         </div>
-        <div class="column">
-            <div class="card text-white bg-info mb-3" style="max-width: 26rem;">
+        <div class="column our-service-wrapper">
+            <div class="card text-white bg-info" style="">
                 <div class="card-header">
                     <h4 class="card-title">Image Data Generation</h4>
                 </div>
@@ -157,8 +156,8 @@ body {font-family: "Lato", sans-serif}
                 </div>
             </div>
         </div>
-        <div class="column">
-            <div class="card text-white bg-warning mb-3" style="max-width: 26rem;">
+        <div class="column our-service-wrapper">
+            <div class="card text-white bg-warning" style="">
                 <div class="card-header">
                     <h4 class="card-title">Text Data Generation</h4>
                 </div>
@@ -277,9 +276,9 @@ window.onclick = function(event) {
 
 
 </script>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!--<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>-->
 {% endblock %}
 </body>
 
