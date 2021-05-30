@@ -12,7 +12,7 @@
 <style>
     @media(orientation:portrait){
   @media(max-width:768px){
-    html{font-size:12px}
+    html{font-size:17px}
   }
   @media(max-width:300px){
     html{font-size:9px}
@@ -21,7 +21,7 @@
 
 @media(orientation:landscape){
   @media(max-height:768px){
-    html{font-size:12px}
+    html{font-size:17px}
   }
   @media(max-height:300px){
     html{font-size:9px}
@@ -30,7 +30,7 @@
 </style>
 {% endblock %}
 
-
+<body>
 {% block body %}
 
 <div class="container">
@@ -69,12 +69,11 @@
         </figure>
     </div> <!-- col // -->
     {% endfor %}
-    
     </div> <!-- row.// -->
     {% else %}
     <h3>you haven't authored any tasks</h3>
-    
     {% endif %}
     </div>
 
 {% endblock %}
+</body>
