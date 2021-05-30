@@ -8,7 +8,26 @@
 <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/search.css' %}">
+<style>
+@media(orientation:portrait){
+  @media(max-width:768px){
+    html{font-size:12px}
+  }
+  @media(max-width:576px){
+    html{font-size:9px}
+  }
+}
+
+@media(orientation:landscape){
+  @media(max-height:768px){
+    html{font-size:12px}
+  }
+  @media(max-height:400px){
+    html{font-size:9px}
+  }
+}
+</style>
 {% endblock %}
 
 {% block body %}
@@ -24,7 +43,7 @@
 
 <section id="team" class="pb-5 container-section">
     <div class="container">
-        <h5 class="section-title h1">CDAP MEMBERS</h5>
+        <h5 class="section-title h1" style="text-align:center">CDAP MEMBERS</h5>
         <div class="row">
             {% if filter.qs %}
             {% for user in filter.qs %}
@@ -79,8 +98,8 @@
     {% endif %}
 </section>
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!--<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>-->
 
 {% endblock %}
