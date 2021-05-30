@@ -52,8 +52,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
             <thead>
             <tr>
                 <th style="width: 15%">Title</th>
-                <th style="width: 55%">Description</th>
-                <th style="width: 20%">Can you contribute more?</th>
+                <th style="width: 35%">Description</th>
+                <th style="width: 30%">Task Progress</th>
+                <th style="width: 10%">Can you contribute more ?</th>
                 <th style="width: 10%">Task Status</th>
             </tr>
             </thead>
@@ -79,10 +80,17 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                 {% else %}
                 <td>{{text_data_annotation_task.description}}</td>
                 {% endif %}
+                <td>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: {{image_data_annotation_task.task_progress}}%;" aria-valuenow="25"
+                             aria-valuemin="0" aria-valuemax="100">{{image_data_annotation_task.task_progress}}%
+                        </div>
+                    </div>
+                </td>
                 {% if image_data_annotation_task.user_can_contribute_more == "Yes" %}
-                <td><span class="badge badge-primary">Yes</span></td>
+                <td align="center" valign="center"><span class="badge badge-primary">Yes</span></td>
                 {% elif image_data_annotation_task.user_can_contribute_more == "No" %}
-                <td><span class="badge badge-danger">No</span></td>
+                <td align="center" valign="center"><span class="badge badge-danger">No</span></td>
                 {% endif %}
                 {% if text_data_annotation_task.status == "new" %}
                 <td><span class="badge badge-primary">New</span></td>
@@ -108,8 +116,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
             <thead>
             <tr>
                 <th style="width: 15%">Title</th>
-                <th style="width: 55%">Description</th>
-                <th style="width: 20%">Can you contribute more?</th>
+                <th style="width: 35%">Description</th>
+                <th style="width: 30%">Task Progress</th>
+                <th style="width: 10%">Can you contribute more ?</th>
                 <th style="width: 10%">Task Status</th>
             </tr>
             </thead>
@@ -135,10 +144,17 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                 {% else %}
                 <td>{{image_data_annotation_task.description}}</td>
                 {% endif %}
+                <td>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: {{image_data_annotation_task.task_progress}}%;" aria-valuenow="25"
+                             aria-valuemin="0" aria-valuemax="100">{{image_data_annotation_task.task_progress}}%
+                        </div>
+                    </div>
+                </td>
                 {% if image_data_annotation_task.user_can_contribute_more == "Yes" %}
-                <td><span class="badge badge-primary">Yes</span></td>
+                <td align="center" valign="center"><span class="badge badge-primary">Yes</span></td>
                 {% elif image_data_annotation_task.user_can_contribute_more == "No" %}
-                <td><span class="badge badge-danger">No</span></td>
+                <td align="center" valign="center"><span class="badge badge-danger">No</span></td>
                 {% endif %}
                 {% if image_data_annotation_task.status == "new" %}
                 <td><span class="badge badge-primary">New</span></td>
@@ -164,8 +180,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
             <thead>
             <tr>
                 <th style="width: 15%">Title</th>
-                <th style="width: 55%">Description</th>
-                <th style="width: 20%">Can you contribute more?</th>
+                <th style="width: 35%">Description</th>
+                <th style="width: 30%">Task Progress</th>
+                <th style="width: 10%">Can you contribute more ?</th>
                 <th style="width: 10%">Task Status</th>
             </tr>
             </thead>
@@ -191,10 +208,17 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                 {% else %}
                 <td>{{text_data_generation_task.description}}</td>
                 {% endif %}
+                <td>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: {{image_data_annotation_task.task_progress}}%;" aria-valuenow="25"
+                             aria-valuemin="0" aria-valuemax="100">{{image_data_annotation_task.task_progress}}%
+                        </div>
+                    </div>
+                </td>
                 {% if image_data_annotation_task.user_can_contribute_more == "Yes" %}
-                <td><span class="badge badge-primary">Yes</span></td>
+                <td align="center" valign="center"><span class="badge badge-primary">Yes</span></td>
                 {% elif image_data_annotation_task.user_can_contribute_more == "No" %}
-                <td><span class="badge badge-danger">No</span></td>
+                <td align="center" valign="center"><span class="badge badge-danger">No</span></td>
                 {% endif %}
                 {% if text_data_generation_task.status == "new" %}
                 <td><span class="badge badge-primary">New</span></td>
@@ -220,8 +244,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
             <thead>
             <tr>
                 <th style="width: 15%">Title</th>
-                <th style="width: 55%">Description</th>
-                <th style="width: 20%">Can you contribute more?</th>
+                <th style="width: 35%">Description</th>
+                <th style="width: 30%">Task Progress</th>
+                <th style="width: 10%">Can you contribute more ?</th>
                 <th style="width: 10%">Task Status</th>
             </tr>
             </thead>
@@ -247,10 +272,17 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                 {% else %}
                 <td>{{image_data_generation_task.description}}</td>
                 {% endif %}
+                <td>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: {{image_data_annotation_task.task_progress}}%;" aria-valuenow="25"
+                             aria-valuemin="0" aria-valuemax="100">{{image_data_annotation_task.task_progress}}%
+                        </div>
+                    </div>
+                </td>
                 {% if image_data_annotation_task.user_can_contribute_more == "Yes" %}
-                <td><span class="badge badge-primary">Yes</span></td>
+                <td align="center" valign="center"><span class="badge badge-primary">Yes</span></td>
                 {% elif image_data_annotation_task.user_can_contribute_more == "No" %}
-                <td><span class="badge badge-danger">No</span></td>
+                <td align="center" valign="center"><span class="badge badge-danger">No</span></td>
                 {% endif %}
                 {% if image_data_generation_task.status == "new" %}
                 <td><span class="badge badge-primary">New</span></td>
