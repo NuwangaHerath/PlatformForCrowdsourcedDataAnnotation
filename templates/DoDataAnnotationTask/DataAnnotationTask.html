@@ -477,6 +477,15 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                 <div class="card-header"><h5>Task Description : {{task_object.description}}</h5></div>
                 <div class="card-header"><h5>Instructions : {{task_object.instructions}}</h5></div>
                 <div class="card-header"><h5>Task Type : {{task_object.taskType}}</h5></div>
+                <div class="card-header">
+                    <h5>Task Progress</h5><br>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: {{task_object.task_progress}}%;"
+                             aria-valuenow="25"
+                             aria-valuemin="0" aria-valuemax="100">{{task_object.task_progress}}%
+                        </div>
+                    </div>
+                </div>
                 {% if data_instance_available %}
                 <div id="count_down_div" class="card-header">
                     <h5 id="complete_within" style="color:black">COMPLETE WITHIN : </h5>
