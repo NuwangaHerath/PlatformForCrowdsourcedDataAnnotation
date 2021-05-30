@@ -9,78 +9,111 @@
 <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+
+<style>
+
+    /* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+  padding: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* On screens that are 992px wide or less, go from four columns to two columns */
+@media screen and (max-width: 992px) {
+  .column {
+    width: 50%;
+  }
+}
+
+/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+.search {
+ background-image: url('{% static 'img/search2.jpg' %}');
+ top:0;
+ left:0;
+ background-size:100% 100%;
+}
+
+
+
+</style>
 {% endblock %}
 
+<body>
 {% block body %}
-
-<div>
-    <center><h3>Search here!</h3>
-        <form method="get">
-            {{ filter.form.as_p }}
-            <button type="submit" class="btn btn-lg btn-primary">Search</button>
-        </form>
-    </center>
-</div>
-
-<section id="team" class="pb-5">
-    <div class="container">
-        <h5 class="section-title h1">CDAP MEMBERS</h5>
-        <div class="row">
-            {% if filter.qs %}
-            {% for user in filter.qs %}
-            <!-- Team member -->
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class="image-flip">
-                    <div class="mainflip flip-0">
-                        <div class="frontside">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="{{user.avatar.url}}" alt="card image"></p>
-                                    <h4 class="card-title">{{user.first_name}} {{user.last_name}}</h4>
-                                    {% if user.is_author %}
-                                    <p class="card-text">Author in {{user.field}} field</p>
-                                    {% endif %}
-                                    {% if user.is_contributor %}
-                                    <p class="card-text">Contributor in {{user.field}} field</p>
-                                    {% endif %}
-                                    <a href="" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="backside">
-                            <div class="card">
-                                <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">{{user.first_name}} {{user.last_name}}</h4>
-                                    <p class="card-text">{{user.bio}}</p>
-                                    <p class="card-text"><i class="fa fa-envelope" style="padding-right: 5px;"></i>{{user.email}}
-                                    </p>
-                                    {% if request.user.is_authenticated %}
-                                    <a href="{% url 'UserManagement:view_profile' user.id %}"><i class="fa fa-eye"></i></a>
-                                    {% endif %}
-                                    {% if request.user.is_authenticated and request.user|has_group:"admin" %}
-                                    <a href="{% url 'UserManagement:delete_profile' user.id %}"><i class="fa fa-trash"
-                                                                                                   style="color: red;"></i></a>
-                                    {% endif %}
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<div class="w3-content" style="max-width:2000px;margin-top:46px">
+    <div class="search">
+        <div class="card border-info mb-3" style="max-width: 20rem;top: 0%;left:40%">
+            <div class="card-header" style="color:RoyalBlue"><h1><b>Search Here!</b></h1></div>
+            <div class="card-body text-info">
+                <form method="get">
+                    {{ filter.form.as_p }}
+                    <button type="submit" class="btn btn-lg btn-primary">Search</button>
+                </form>
             </div>
-            {% endfor %}
-            <!-- ./Team member -->
-
         </div>
     </div>
-    {% else %}
-    <p>Sorry, No matches found</p>
-    {% endif %}
-</section>
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
+    <div class="card text-white bg-info mb-3" style="max-width: 100rem;">
+        <div class="card-body" style="text-align:center;">
+            <h4 class="card-title">CDAP MEMBERS</h4>
+        </div>
+    </div>
+    <div class="row">
+        <!-- new changes -->
+        {% if filter.qs %}
+        {% for user in filter.qs %}
+        <!-- team members -->
+        <div class="column">
+            <div class="card" style="min-width: 18rem;">
+                <img src="{{user.avatar.url}}" class="card-img-top" alt="card image">
+                <div class="card-body">
+                    <h5 class="card-title">{{user.first_name}} {{user.last_name}}</h5>
+                    {% if user.is_author %}
+                    <p class="card-text">Author in {{user.field}} field</p>
+                    {% endif %}
+                    {% if user.is_contributor %}
+                    <p class="card-text">Contributor in {{user.field}} field</p>
+                    {% endif %}
+                    <p class="card-text">{{user.bio}}</p>
+                    <p class="card-text">{{user.email}}</p>
+                    {% if request.user.is_authenticated %}
+                    <a href="{% url 'UserManagement:view_profile' user.id %}" class="btn btn-primary"><i
+                            class="fa fa-eye"></i> View </a>
+                    {% endif %}
+                    {% if request.user.is_authenticated and request.user|has_group:"admin" %}
+                    <a href="{% url 'UserManagement:delete_profile' user.id %}" class="btn btn-primary"><i
+                            class="fa fa-trash"></i> Remove </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <!-- ./Team member -->
+        {% else %}
+        <div class="alert alert-danger" role="alert" style="width:100%;">
+            <b>Sorry, No matches found!</b>
+        </div>
+        {% endif %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</div>
 {% endblock %}
+</body>
