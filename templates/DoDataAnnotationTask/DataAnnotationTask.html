@@ -3,11 +3,17 @@
 {% block title %}Annotation task{% endblock %}
 {% block style %}
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<link rel="shortcut icon" type="image/png" href="favicon.png">
+<!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">-->
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"-->
+<!--      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
+<!--<link rel="shortcut icon" type="image/png" href="favicon.png">-->
+
+<link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+
 
 <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
 <style>
@@ -408,6 +414,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   }
 }
 
+
 </style>
 {% endblock %}
 {% block body %}
@@ -420,9 +427,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <div class="w3-light-grey">
     <!-- Top container -->
 
-        <button class=" w3-button w3-hover-none w3-hover-text-light-green nav-annot-results-show" onclick="w3_open();"><i
-                class="fa fa-bars"></i> View Contribution
-        </button>
+    <button class=" w3-button w3-hover-none w3-hover-text-light-green nav-annot-results-show" onclick="w3_open();"><i
+            class="fa fa-bars"></i> View Contribution
+    </button>
 
     <!-- Contribution -->
     <nav class="w3-sidebar w3-white nav-annot-results" style="z-index:3;width:30%;" id="mySidebar"><br>
@@ -490,7 +497,12 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                 <div id="count_down_div" class="card-header">
                     <h5 id="complete_within" style="color:black">COMPLETE WITHIN : </h5>
                     <div id="progress_circle">
-                          <div class="progress-circle over180 p300"> <span style="color:black;"> 5 m 0s </span> <div class="left-half-clipper"> <div class="first180-bar"></div> <div class="value-bar"></div> </div> </div>
+                        <div class="progress-circle over180 p300"><span style="color:black;"> 5 m 0s </span>
+                            <div class="left-half-clipper">
+                                <div class="first180-bar"></div>
+                                <div class="value-bar"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 {% load static %}
@@ -617,6 +629,10 @@ window.addEventListener( "pageshow", function ( event ) {
 });
 
 
+
     </script>
 </div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 {% endblock %}
