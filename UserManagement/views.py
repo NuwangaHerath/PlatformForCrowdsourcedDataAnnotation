@@ -330,6 +330,12 @@ def view_my_tasks(request):
         else:
             user_task.Task.user_can_contribute_more = "No"
 
+        all_data_instances = MediaDataInstance.objects.filter(taskID_id=task_id)
+        annotated_count = 0
+        for i in all_data_instances:
+            annotated_count = annotated_count + i.NumberOfAnnotations
+        user_task.Task.task_progress = round((annotated_count/(len(all_data_instances)*data_instance_annotation_times))*100)
+
         if user_task.Task.taskType == 'TextAnno':
             if len(user_task.Task.description) > 140:
                 user_task.Task.description1 = user_task.Task.description[0:140]
