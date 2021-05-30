@@ -40,22 +40,35 @@
   }
 }
 .search {
+ padding-top:30px;
  background-image: url('{% static 'img/search2.jpg' %}');
  top:0;
  left:0;
- background-size:100% 100%;
+ background-size:cover;
+ -o-object-fit: cover;
+			object-fit: cover;
 }
 
+@media(max-width:768px){
+    html{font-size:12px}
+  }
 
+@media(max-width:576px){
+    html{font-size:9px}
+
+    .search{
+        padding-top:10px;
+    }
+  }
 
 </style>
 {% endblock %}
 
 <body>
 {% block body %}
-<div class="w3-content" style="max-width:2000px;margin-top:46px">
+<div class="w3-content" style="max-width:2000px;">
     <div class="search">
-        <div class="card border-info mb-3" style="max-width: 20rem;top: 0%;left:40%">
+        <div class="card border-info mb-3" style="max-width: 20rem;left:50%;transform:translateX(-50%);">
             <div class="card-header" style="color:RoyalBlue"><h1><b>Search Here!</b></h1></div>
             <div class="card-body text-info">
                 <form method="get">
@@ -77,25 +90,25 @@
         {% if filter.qs %}
         {% for user in filter.qs %}
         <!-- team members -->
-        <div class="column">
-            <div class="card" style="min-width: 18rem;">
-                <img src="{{user.avatar.url}}" class="card-img-top" alt="card image">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="card" style="padding-top:5px">
+                <img src="{{user.avatar.url}}" class="card-img-top" alt="card image" style="width: 120px;height: 120px;border-radius: 50%;position:relative;left:50%;transform:translateX(-50%);">
                 <div class="card-body">
-                    <h5 class="card-title">{{user.first_name}} {{user.last_name}}</h5>
+                    <h5 class="card-title" style="text-align:center">{{user.first_name}} {{user.last_name}}</h5>
                     {% if user.is_author %}
-                    <p class="card-text">Author in {{user.field}} field</p>
+                    <p class="card-text" style="text-align:center">Author in {{user.field}} field</p>
                     {% endif %}
                     {% if user.is_contributor %}
-                    <p class="card-text">Contributor in {{user.field}} field</p>
+                    <p class="card-text" style="text-align:center">Contributor in {{user.field}} field</p>
                     {% endif %}
-                    <p class="card-text">{{user.bio}}</p>
-                    <p class="card-text">{{user.email}}</p>
+                    <p class="card-text" style="text-align:center">{{user.bio}}</p>
+                    <p class="card-text" style="text-align:center">{{user.email}}</p>
                     {% if request.user.is_authenticated %}
-                    <a href="{% url 'UserManagement:view_profile' user.id %}" class="btn btn-primary"><i
+                    <a href="{% url 'UserManagement:view_profile' user.id %}" class="btn btn-primary" style="position:relative;left:50%;transform:translateX(-50%);"><i
                             class="fa fa-eye"></i> View </a>
                     {% endif %}
                     {% if request.user.is_authenticated and request.user|has_group:"admin" %}
-                    <a href="{% url 'UserManagement:delete_profile' user.id %}" class="btn btn-primary"><i
+                    <a href="{% url 'UserManagement:delete_profile' user.id %}" class="btn btn-primary" style="position:relative;left:50%;transform:translateX(-50%);"><i
                             class="fa fa-trash"></i> Remove </a>
                     {% endif %}
                 </div>
