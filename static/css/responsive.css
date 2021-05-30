@@ -103,14 +103,14 @@
         }
 
         .nav-annot-results{
-            display:block;
+            display:none;
         }
 
 	}
 
 @media(min-width:600px){
     .nav-annot-results-show{
-            visibility:hidden;
+            display:none;
         }
 }
 
