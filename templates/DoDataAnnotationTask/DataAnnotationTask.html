@@ -17,6 +17,13 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
 <style>
+  @media(max-width:768px){
+    html{font-size:12px}
+  }
+  @media(max-width:300px){
+    html{font-size:9px}
+  }
+
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       .progress-circle {
    font-size: 20px;
@@ -405,14 +412,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   }
 }
 
-@media(orientation:landscape){
-  @media(max-height:768px){
-    html{font-size:12px}
-  }
-  @media(max-height:400px){
-    html{font-size:9px}
-  }
-}
+
 
 
 </style>
@@ -424,7 +424,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         <li class="breadcrumb-item active" aria-current="page">{{task_object.title}}</li>
     </ol>
 </nav>
-<div class="w3-light-grey">
+<div class="w3-white">
     <!-- Top container -->
 
     <button class=" w3-button w3-hover-none w3-hover-text-light-green nav-annot-results-show" onclick="w3_open();"><i
@@ -432,7 +432,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </button>
 
     <!-- Contribution -->
-    <nav class="w3-sidebar w3-white nav-annot-results" style="z-index:3;width:30%;margin-top:10px" id="mySidebar"><br>
+    <nav class="w3-sidebar w3-light-grey nav-annot-results" style="z-index:3;width:30%;margin-top:10px;height:65%" id="mySidebar"><br>
         <div class="w3-container w3-row">
             <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-dark-grey w3-hover-black nav-annot-results-show"
                onclick="w3_close()" title="close"><i class="fa fa-remove fa-fw"></i>Close</a></br>
@@ -478,7 +478,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         <!-- Header -->
         <header class="w3-container" style="padding-top:22px">
         </header>
-        <div class="container" style="padding-bottom:300px">
+        <div class="container" style="">
             <div class="card">
                 <div class="card-header"><h2>Task Title : {{task_object.title}}</h2></div>
                 <div class="card-header"><h5>Task Description : {{task_object.description}}</h5></div>
@@ -507,7 +507,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                 </div>
                 {% load static %}
                 <div class="card-body">
-                    <img height="200" src="{{ data_instance.media.url }}" alt="{{ data_instance.media.url }}">
+                    <img src="{{ data_instance.media.url }}" alt="{{ data_instance.media.url }}">
                 </div>
                 <div class="card-body">
                     <h5>Your answer</h5>
