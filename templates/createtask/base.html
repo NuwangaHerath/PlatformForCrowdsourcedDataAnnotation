@@ -264,6 +264,11 @@
         </div>
     </div>
 </nav>
+{% for m in messages %}
+<div class="alert alert-primary" role="alert" style="margin-bottom:0px">
+    {{m}}
+</div>
+{% endfor %}
 {% block container %}
 {% endblock container%}
 <div class="footer-height-compensate"></div>
