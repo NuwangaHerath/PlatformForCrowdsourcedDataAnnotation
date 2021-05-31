@@ -10,9 +10,9 @@ from UserManagement.models import ContributorTask,Profile
 from django.db import DatabaseError, transaction
 import datetime
 
-from gtts import gTTS
-from playsound import playsound
-import  os
+# from gtts import gTTS
+# from playsound import playsound
+# import  os
 
 def test(request):
     return render(request, 'DoDataAnnotationTask/test.html')
@@ -41,10 +41,10 @@ def task(request):
         data_instance = request.POST['DataInstance']
         task_id = request.POST['task_id']
 
-        speech =gTTS(text=data[1])
-        speech.save('DataFlair.mp3')
-        playsound('DataFlair.mp3')
-        os.remove("DataFlair.mp3")
+        # speech =gTTS(text=data[1])
+        # speech.save('DataFlair.mp3')
+        # playsound('DataFlair.mp3')
+        # os.remove("DataFlair.mp3")
 
 
         try:
