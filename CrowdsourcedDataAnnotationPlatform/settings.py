@@ -23,7 +23,7 @@ SECRET_KEY = 'mgqr+xmp@v=y+6-ohs8t6cy9j841(j012agi=6$3r(-9(mf@cz'
 DEBUG = True
 
 #ALLOWED_HOSTS = ['104.197.54.228']
-ALLOWED_HOSTS = ['34.134.212.174', '127.0.0.1','34.70.173.44']
+ALLOWED_HOSTS = ['34.134.212.174', '127.0.0.1','34.70.173.44','35.223.66.219']
 
 
 # Application definition
