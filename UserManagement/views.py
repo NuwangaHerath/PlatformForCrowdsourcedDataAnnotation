@@ -79,7 +79,7 @@ def sign_up(request):
                 request.session['user_id'] = user.id
                 review.user_id = request.session['user_id']
                 review.save()
-                messages.success(request, "Congradulations! Your account was created successfully")
+                messages.success(request, "Congratulation! Your account was created successfully")
                 return HttpResponseRedirect(reverse('UserManagement:edit_profile'))  # TODO: go to profile
         return render(request, 'UserManagement/sign_up.html', {'form': form})
 
