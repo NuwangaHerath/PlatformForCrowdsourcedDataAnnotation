@@ -20,7 +20,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
     @media(orientation:portrait){
   @media(max-width:768px){
-    html{font-size:12px}
+    html{font-size:17px}
   }
   @media(max-width:300px){
     html{font-size:9px}
@@ -29,15 +29,17 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 @media(orientation:landscape){
   @media(max-height:768px){
-    html{font-size:12px}
+    html{font-size:17px}
   }
   @media(max-height:300px){
     html{font-size:9px}
   }
 }
+
 </style>
 {% endblock %}
 
+<body>
 {% block body %} 
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
@@ -316,7 +318,6 @@ function myFunction(taskid) {
   }
 }
 </script>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
 {% endblock %}
+</body>

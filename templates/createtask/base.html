@@ -1,43 +1,78 @@
 <head>
 
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>Data Annotation</title>
-    {% load static %}
-    {% load auth_extras %}
-    <!-- Font Awesome icons (free version)-->
-    <script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" crossorigin="anonymous"></script>
-    <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <!--    <meta charset="utf-8" />-->
+    <!--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />-->
+    <!--    <meta name="description" content="" />-->
+    <!--    <meta name="author" content="" />-->
+    <!--    <title>Data Annotation</title>-->
+    <!--    {% load static %}-->
+    <!--    {% load auth_extras %}-->
+    <!--    &lt;!&ndash; Font Awesome icons (free version)&ndash;&gt;-->
+    <!--    <script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" crossorigin="anonymous"></script>-->
+    <!--    &lt;!&ndash; Google fonts&ndash;&gt;-->
+    <!--    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />-->
+    <!--    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />-->
 
-    <!-- Bootstrap CSS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <!--    &lt;!&ndash; Bootstrap CSS &ndash;&gt;-->
+    <!--    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>-->
+    <!--    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>-->
+    <!--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>-->
+    <!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">-->
+    <!--    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">-->
+    <!--    <script src="https://kit.fontawesome.com/a81368914c.js"></script>-->
+    <!--    <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,500' rel='stylesheet' type='text/css'>-->
+    <!--    <link href='https://fonts.googleapis.com/css?family=Cousine' rel='stylesheet' type='text/css'>-->
+    <!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
+    <!--    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>-->
+    <!--    <script type="text/javascript" src="{% static 'js/autogrow.js' %}"> </script>-->
+    <!--    <script type="text/javascript" src="{% static 'js/main.js' %}"> </script>-->
+    <!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">-->
+    <!--    <script src="https://kit.fontawesome.com/a81368914c.js"></script>-->
+
+    <!-- Basic Page Needs
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <title>{% block title %}CDAP{% endblock %}</title>
+
+    <!-- Mobile Specific Metas
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {% block style %}{% endblock %}
+
+    <!-- FONTS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+    <!--link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet"-->
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,500' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Cousine' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!--link href='https://fonts.googleapis.com/css?family=Work+Sans:400,500' rel='stylesheet' type='text/css'-->
+    <!--link href='https://fonts.googleapis.com/css?family=Cousine' rel='stylesheet' type='text/css'-->
+
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-    <script type="text/javascript" src="{% static 'js/autogrow.js' %}"> </script>
-    <script type="text/javascript" src="{% static 'js/main.js' %}"> </script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
-   
+    <!--link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"-->
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!--    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">-->
+
     <style type="text/css">
         .spacer{
             margin-top:25px;
         }
     @media(orientation:portrait){
         @media(max-width:768px){
-            html{font-size:12px}
+            html{font-size:17px}
         }
         @media(max-width:300px){
             html{font-size:11px}
@@ -52,7 +87,7 @@
 
     @media(orientation:landscape){
         @media(max-height:768px){
-            html{font-size:12px}
+            html{font-size:17px}
 
             .spacer{
                 margin-top:10px;
@@ -62,88 +97,297 @@
             html{font-size:9px}
         }
     }
+
+
+
     </style>
-    {% block custom_css %}{% endblock %}
+
+    <style>
+
+    .copyright {
+  padding: 28px 0;
+  margin-top: 55px;
+  background-color: #303030; }
+  .copyright span,
+  .copyright a {
+    color: #878787;
+    -webkit-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear; }
+  .copyright a:hover {
+    color:#007bff; }
+
+.copyright-menu ul {
+  text-align: right;
+  margin: 0; }
+
+.copyright-menu li {
+  display: inline-block;
+  padding-left: 20px; }
+
+.back-to-top {
+  position: relative;
+  z-index: 2; }
+  .back-to-top .btn-dark {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    padding: 0;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #2e2e2e;
+    border-color: #2e2e2e;
+    display: none;
+    z-index: 999;
+    -webkit-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear; }
+    .back-to-top .btn-dark:hover {
+      cursor: pointer;
+      background: #FA6742;
+      border-color: #FA6742; }
+
+           footer {
+   position:relative;
+   bottom:0;
+   width:100%;
+}
+
+
+
+
+    </style>
+    <!--    {% block custom_css %}{% endblock %}-->
     <!-- Core theme CSS (includes Bootstrap)-->
 
-    <link href="{% static 'createtask/css/styles.css' %}" rel="stylesheet" />
+    <!--    <link href="{% static 'createtask/css/styles.css' %}" rel="stylesheet" />-->
 
 </head>
-<body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="{% url 'home' %}">CDAP</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="font-size:17px">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}"><b>CDAP</b></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only"></span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'UserManagement:search' %}">Search</a>
-            </li>
-            {% if not user.is_authenticated %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'UserManagement:sign_up' %}">Sign Up</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'UserManagement:sign_in' %}">Sign In</a>
-            </li>
-            {% endif %}
-            {% if user|has_group:"crowd_user" %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'UserManagement:profile' %}">Profile</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'UserManagement:edit_profile' %}">Edit Profile</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'UserManagement:change_password' %}">Change Password</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/UserManagement/MyTasks/">MyTasks</a>
-            </li>
-    
-            <!---li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-                Settings
-            </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{% url 'UserManagement:edit_profile' %}">Edit Profile</a>
-                <a class="dropdown-item" href="{% url 'UserManagement:change_password' %}">Change Password</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'home' %}"> Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'UserManagement:search' %}"> Search <span
+                            class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav mr-auto">
+
+                {% if user|has_group:"crowd_user" %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/UserManagement/MyTasks/"> MyTasks </a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Profile
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'UserManagement:profile' %}"> Profile Info</a>
+                        <a class="dropdown-item" href="{% url 'UserManagement:edit_profile' %}"> Edit Profile </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'UserManagement:change_password' %}"> Change Password </a>
+                    </div>
+                </li>
+
+                {% endif %}
+                {% if user|has_group:"admin" %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'UserManagement:profile_list' %}"> View users </a>
+                </li>
+                <!--li class="nav-item">
+                    <a class="nav-link" href="{% url 'UserManagement:profile_list' %}">View tasks</a>
+                </li-->
+                {% endif %}
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+                {% if not user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'UserManagement:sign_up' %}"> Sign Up </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'UserManagement:sign_in' %}"> Sign In </a>
+                </li>
+                {% endif %}
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'UserManagement:sign_out' %}"> Sign Out </a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+{% block container %}
+{% endblock container%}
+</body>
+
+<footer>
+    <!--    <div class="bg-light py-4">-->
+    <!--        <div class="container text-center">-->
+    <!--            <p class="text-muted mb-0 py-2">© 2019 Bootstrapious All rights reserved.</p>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <span>Copyright © 2019, All Right Reserved Seobin</span>
                 </div>
-            </li-->
-            {% endif %}
-            {% if user|has_group:"admin" %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'UserManagement:profile_list' %}">View users</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'UserManagement:profile_list' %}">View tasks</a>
-            </li>
-            {% endif %}
-            {% if user.is_authenticated and user.Profile.is_contributor %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'UserManagement:field_task_list' %}">AvailableTasks</a>
-            </li>
-            {% endif %}
-            {% if user.is_authenticated %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'UserManagement:sign_out' %}">Sign Out</a>
-            </li>
-            {% endif %}
-        </ul>
+                <!-- End Col -->
+                <div class="col-md-6">
+                    <div class="copyright-menu">
+                        <ul>
+                            <li>
+                                <a href="{% url 'home' %}">Home</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'UserManagement:search' %}">Members</a>
+                            </li>
+                            <li>
+                                <a id="pp">Privacy Policy</a>
+                            </li>
+                            <li>
+                                <a id="cc">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- End col -->
+            </div>
+            <!-- End Row -->
+        </div>
+        <!-- End Copyright Container -->
+    </div>
+    <!-- End Copyright -->
+    <!-- Back to top -->
+    <div id="back-to-top" class="back-to-top">
+        <button class="btn btn-dark" title="Back to Top" style="display: block;">
+            <i class="fa fa-angle-up"></i>
+        </button>
+    </div>
+    <!-- End Back to top -->
+
+    <!--    modal for privacy policies-->
+    <div class="modal" id="modal1" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Privacy Policies</h5>
+                    <button type="button" class="close" id="c1" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Thanks for entrusting CDAP Inc. (“CDAP”, “we”) with your annotation tasks, your projects, and
+                        your
+                        personal information. Holding on to your private information is a serious responsibility, and we
+                        want you to know how we're handling it. </p>
+                    <p>We use your personal information as this Privacy
+                        Statement describes. No matter where you are, where you live, or what your citizenship is, we
+                        provide the same high standard of privacy protection to all our users around the world,
+                        regardless of their country of origin or location.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="close1" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    </nav>
+    <!--    modal for contact info-->
+    <div class="modal" id="modal2" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Contact</h5>
+                    <button type="button" class="close" id="c2" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p><i class="fa fa-location-arrow"></i> No 23, Beavers St, Colombo 11</p>
+                    <p><i class="fa fa-phone"></i> 0113 997 223</p>
+                    <p><i class="fa fa-envelope"></i> cdap.org@gmail.com</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="close2" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-{% block container %}
-{% endblock container %}
+</footer>
+<script>
+// Get the modal
+var modal1 = document.getElementById("modal1");
+var modal2 = document.getElementById("modal2");
+
+// Get the button that opens the modal
+var btn1 = document.getElementById("pp");
+var btn2 = document.getElementById("cc");
+
+// Get the <span> element that closes the modal
+var span1 = document.getElementById("c1");
+var span2 = document.getElementById("c2");
+
+// Get the button that closes the modal
+var close1 = document.getElementById("close1");
+var close2 = document.getElementById("close2");
+
+// When the user clicks the button, open the modal
+btn1.onclick = function() {
+  modal1.style.display = "block";
+}
+btn2.onclick = function() {
+  modal2.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span1.onclick = function() {
+  modal1.style.display = "none";
+}
+
+span2.onclick = function() {
+  modal2.style.display = "none";
+}
+
+// when click the close button
+close1.onclick = function() {
+  modal1.style.display = "none";
+}
+
+close2.onclick = function() {
+  modal2.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal1) {
+    modal1.style.display = "none";
+  }
+    if (event.target == modal2) {
+    modal2.style.display = "none";
+  }
+}
 
 
-</body>
+</script>
+<!-- End -->
+
