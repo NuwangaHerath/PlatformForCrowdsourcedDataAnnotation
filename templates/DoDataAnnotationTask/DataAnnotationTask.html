@@ -418,6 +418,42 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
 {% endblock %}
 {% block body %}
+<script>
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function narrator_load() {
+    if (getCookie("narrator_status")==='on'){
+        document.getElementById("narrator_button").innerHTML = '<button id="narrator_on" onclick="narrator_enable(this.id)"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-volume-up-fill" viewBox="0 0 16 16"> <path d="M11.536 14.01A8.473 8.473 0 0 0 14.026 8a8.473 8.473 0 0 0-2.49-6.01l-.708.707A7.476 7.476 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303l.708.707z"/> <path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.483 5.483 0 0 1 11.025 8a5.483 5.483 0 0 1-1.61 3.89l.706.706z"/> <path d="M8.707 11.182A4.486 4.486 0 0 0 10.025 8a4.486 4.486 0 0 0-1.318-3.182L8 5.525A3.489 3.489 0 0 1 9.025 8 3.49 3.49 0 0 1 8 10.475l.707.707zM6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06z"/> </svg> </button>';
+    } else {
+        document.getElementById("narrator_button").innerHTML = '<button id="narrator_off" onclick="narrator_enable(this.id)"> <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-volume-mute-fill" viewBox="0 0 16 16"> <path d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06zm7.137 2.096a.5.5 0 0 1 0 .708L12.207 8l1.647 1.646a.5.5 0 0 1-.708.708L11.5 8.707l-1.646 1.647a.5.5 0 0 1-.708-.708L10.793 8 9.146 6.354a.5.5 0 1 1 .708-.708L11.5 7.293l1.646-1.647a.5.5 0 0 1 .708 0z"/> </svg> </button>';
+    }
+}
+
+function narrator_enable(id) {
+    if (id==='narrator_off'){
+        document.getElementById("narrator_button").innerHTML = '<button id="narrator_on" onclick="narrator_enable(this.id)"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-volume-up-fill" viewBox="0 0 16 16"> <path d="M11.536 14.01A8.473 8.473 0 0 0 14.026 8a8.473 8.473 0 0 0-2.49-6.01l-.708.707A7.476 7.476 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303l.708.707z"/> <path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.483 5.483 0 0 1 11.025 8a5.483 5.483 0 0 1-1.61 3.89l.706.706z"/> <path d="M8.707 11.182A4.486 4.486 0 0 0 10.025 8a4.486 4.486 0 0 0-1.318-3.182L8 5.525A3.489 3.489 0 0 1 9.025 8 3.49 3.49 0 0 1 8 10.475l.707.707zM6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06z"/> </svg> </button>';
+        document.cookie = "narrator_status=on; expires=Thu, 18 Dec 2033 12:00:00 UTC; path=/DoDataAnnotationTask/Task";
+    }
+    else if (id==='narrator_on'){
+        document.getElementById("narrator_button").innerHTML = '<button id="narrator_off" onclick="narrator_enable(this.id)"> <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-volume-mute-fill" viewBox="0 0 16 16"> <path d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06zm7.137 2.096a.5.5 0 0 1 0 .708L12.207 8l1.647 1.646a.5.5 0 0 1-.708.708L11.5 8.707l-1.646 1.647a.5.5 0 0 1-.708-.708L10.793 8 9.146 6.354a.5.5 0 1 1 .708-.708L11.5 7.293l1.646-1.647a.5.5 0 0 1 .708 0z"/> </svg> </button>';
+        document.cookie = "narrator_status=off; expires=Thu, 18 Dec 2033 12:00:00 UTC; path=/DoDataAnnotationTask/Task";
+    }
+}
+</script>
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb" style="margin-bottom:0">
         <li class="breadcrumb-item"><a href="/UserManagement/MyTasks/">My Tasks</a></li>
@@ -437,6 +473,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
             <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-dark-grey w3-hover-black nav-annot-results-show"
                onclick="w3_close()" title="close"><i class="fa fa-remove fa-fw"></i>Close</a></br>
             <div class="w3-col s8 w3-bar">
+                <span id="narrator_button" onload="narrator_load()">
+                </span><br>
+                <script>narrator_load();</script>
                 <span>Welcome, <strong>{{first_name}}</strong></span><br>
             </div>
         </div>
@@ -554,89 +593,87 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         <!-- End page content -->
     </div>
     <script>
-  // Get the Sidebar
-var mySidebar = document.getElementById("mySidebar");
+          // Get the Sidebar
+        var mySidebar = document.getElementById("mySidebar");
 
-// Get the DIV with overlay effect
-var overlayBg = document.getElementById("myOverlay");
+        // Get the DIV with overlay effect
+        var overlayBg = document.getElementById("myOverlay");
 
-// Toggle between showing and hiding the sidebar, and add overlay effect
-function w3_open() {
-  if (mySidebar.style.display === 'block') {
-    mySidebar.style.display = 'none';
-    overlayBg.style.display = "none";
-  } else {
-    mySidebar.style.display = 'block';
-    overlayBg.style.display = "block";
-  }
-}
+        // Toggle between showing and hiding the sidebar, and add overlay effect
+        function w3_open() {
+          if (mySidebar.style.display === 'block') {
+            mySidebar.style.display = 'none';
+            overlayBg.style.display = "none";
+          } else {
+            mySidebar.style.display = 'block';
+            overlayBg.style.display = "block";
+          }
+        }
 
-// Close the sidebar with the close button
-function w3_close() {
-  mySidebar.style.display = "none";
-  overlayBg.style.display = "none";
-}
+        // Close the sidebar with the close button
+        function w3_close() {
+          mySidebar.style.display = "none";
+          overlayBg.style.display = "none";
+        }
 
-var msec = Date.parse(new Date())+302000;
-var a = new Date(msec)
-var countDownDate = a.getTime()-1000;
+        var msec = Date.parse(new Date())+302000;
+        var a = new Date(msec)
+        var countDownDate = a.getTime()-1000;
 
-var x = setInterval(function() {
-  var now = new Date().getTime();
-  var distance = countDownDate - now;
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  var output = '<div class="progress-circle ';
+        var x = setInterval(function() {
+          var now = new Date().getTime();
+          var distance = countDownDate - now;
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+          var output = '<div class="progress-circle ';
 
-  if (distance >150000) {
-    output += 'over180 p'+ Math.floor(distance/1000)+'"> <span style="color:';
-  } else {
-    output += ' p'+ Math.floor(distance/1000)+'"> <span style="color:';
-  }
+          if (distance >150000) {
+            output += 'over180 p'+ Math.floor(distance/1000)+'"> <span style="color:';
+          } else {
+            output += ' p'+ Math.floor(distance/1000)+'"> <span style="color:';
+          }
 
-  if (distance < 10000) {
-    output += 'red;">';
-  } else {
-    output += 'black;">';
-  }
+          if (distance < 10000) {
+            output += 'red;">';
+          } else {
+            output += 'black;">';
+          }
 
-  if (distance > 60000) {
-    output += minutes + 'm ' + seconds + 's </span> <div class="left-half-clipper"> <div class="first180-bar"></div> <div class="value-bar"></div> </div> </div>';;
-  } else {
-    output += seconds + 's </span> <div class="left-half-clipper"> <div class="first180-bar"></div> <div class="value-bar"></div> </div> </div>';
-  }
-  document.getElementById("progress_circle").innerHTML = output;
+          if (distance > 60000) {
+            output += minutes + 'm ' + seconds + 's </span> <div class="left-half-clipper"> <div class="first180-bar"></div> <div class="value-bar"></div> </div> </div>';;
+          } else {
+            output += seconds + 's </span> <div class="left-half-clipper"> <div class="first180-bar"></div> <div class="value-bar"></div> </div> </div>';
+          }
+          document.getElementById("progress_circle").innerHTML = output;
 
-  if (distance < 1000) {
-    clearInterval(x);
-    document.getElementById("complete_within").innerHTML = "Allocated time for annotating this data instance has been exceeded.";
-    document.getElementById("complete_within").style.color = "red";
-    {% for data_class in data_classes %}
-        document.getElementById("{{data_class.cateogaryTag}}").disabled = true;
-    {% endfor %}
-    document.getElementById("submit_button").disabled = true;
-  }
-}, 1000);
+          if (distance < 1000) {
+            clearInterval(x);
+            document.getElementById("complete_within").innerHTML = "Allocated time for annotating this data instance has been exceeded.";
+            document.getElementById("complete_within").style.color = "red";
+            {% for data_class in data_classes %}
+                document.getElementById("{{data_class.cateogaryTag}}").disabled = true;
+            {% endfor %}
+            document.getElementById("submit_button").disabled = true;
+          }
+        }, 1000);
 
-window.addEventListener( "pageshow", function ( event ) {
-  var historyTraversal = event.persisted ||
-                         ( typeof window.performance != "undefined" &&
-                              window.performance.navigation.type === 2 );
-  if ( historyTraversal ) {
-    // Handle page restore.
-    window.location.reload();
-  }
-});
+        window.addEventListener( "pageshow", function ( event ) {
+          var historyTraversal = event.persisted ||
+                                 ( typeof window.performance != "undefined" &&
+                                      window.performance.navigation.type === 2 );
+          if ( historyTraversal ) {
+            // Handle page restore.
+            window.location.reload();
+          }
+        });
 
-
-function narrator() {
-var x = document.querySelector('input[name="data_class_id"]:checked').value.split(" ")[1];
-var msg = new SpeechSynthesisUtterance(x);
-window.speechSynthesis.speak(msg);
-}
+        function narrator() {
+            if (getCookie("narrator_status")==='on'){
+                var x = document.querySelector('input[name="data_class_id"]:checked').value.split(" ")[1];
+                var msg = new SpeechSynthesisUtterance(x);
+                window.speechSynthesis.speak(msg);
+            }
+        }
     </script>
-</div><!--
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>-->
+</div>
 {% endblock %}
