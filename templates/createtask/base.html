@@ -181,6 +181,8 @@
    bottom:0;
    width:100%;
 }
+.modal {backdrop-filter: blur(3px) !important;}
+
 
 
 
@@ -255,7 +257,7 @@
                 {% endif %}
                 {% if user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'UserManagement:sign_out' %}"> Sign Out </a>
+                    <a class="nav-link" id="signout"> Sign Out </a>
                 </li>
                 {% endif %}
             </ul>
@@ -277,7 +279,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <span>Copyright © 2019, All Right Reserved Seobin</span>
+                    <span>Copyright © 2021, All Right Reserved CDAP</span>
                 </div>
                 <!-- End Col -->
                 <div class="col-md-6">
@@ -359,6 +361,26 @@
     </div>
 
 </footer>
+
+<!-- Modal box for sign out-->
+<div class="row">
+    <div class="modal" id="signout-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Do you really want to logout?</h5>
+                </div>
+                <div class="modal-footer">
+                    <a href="{% url 'UserManagement:sign_out' %}">
+                        <button type="button" class="btn btn-danger">Yes</button>
+                    </a>
+                    <button type="button" class="btn btn-success" id="no1" data-dismiss="modal">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end modal box-->
 <script>
 // Get the modal
 var modal1 = document.getElementById("modal1");
@@ -411,6 +433,25 @@ window.onclick = function(event) {
     modal2.style.display = "none";
   }
 }
+
+//sign-out popup
+var modal3 = document.getElementById("signout-modal");
+
+var sobtn = document.getElementById("signout");
+
+var yes = document.getElementById("yes1");
+
+var no = document.getElementById("no1");
+
+sobtn.onclick = function() {
+  modal3.style.display = "block";
+}
+
+no.onclick = function() {
+  modal3.style.display = "none";
+}
+
+
 
 
 </script>
