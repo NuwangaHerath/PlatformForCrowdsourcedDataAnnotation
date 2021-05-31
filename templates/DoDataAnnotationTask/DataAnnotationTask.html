@@ -516,7 +516,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                         {% for data_class in data_classes %}
                         <div class="custom-control custom-radio">
                             <input type="radio" id="{{data_class.cateogaryTag}}" name="data_class_id"
-                                   class="custom-control-input" value="{{data_class.cateogaryTag}}" required>
+                                   class="custom-control-input" value="{{data_class.cateogaryTag}} {{data_class.cateogaryName}}" required>
                             <label class="custom-control-label" for="{{data_class.cateogaryTag}}">{{data_class.cateogaryName}}</label>
                         </div>
                         {% endfor %}
