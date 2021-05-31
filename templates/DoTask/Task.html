@@ -46,8 +46,8 @@
                 <form action="Task" method="POST">
                     {% csrf_token %}
                     {% for data_class in data_classes %}
-                    <input type="radio" id="{{data_class.cateogaryName}}" name="data_class_id" value="{{data_class.cateogaryTag}}" required>
-                    <lable for="{{data_class.cateogaryTag}}">{{data_class.cateogaryName}}</lable><br>
+                    <input type="radio" id="{{data_class.cateogaryName}}" name="data_class_id" value="{{data_class.cateogaryTag}} {{data_class.cateogaryName}}" required>
+                    <lable for="{{data_class.cateogaryTag}}" ">{{data_class.cateogaryName}}</lable><br>
                     {% endfor %}
                     <input type="hidden" name="DataInstance" value="{{data_instance.media}}">
                     <input type="hidden" name="task_id" value="{{task_id}}">

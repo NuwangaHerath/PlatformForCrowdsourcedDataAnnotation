@@ -10,6 +10,10 @@ from UserManagement.models import ContributorTask,Profile
 from django.db import DatabaseError, transaction
 import datetime
 
+from gtts import gTTS
+from playsound import playsound
+import  os
+
 def test(request):
     return render(request, 'DoDataAnnotationTask/test.html')
 
@@ -28,9 +32,21 @@ def first(request):
 def task(request):
     user_id = request.session['user_id']
     if request.method == 'POST': # This part will only execute after submitting annotation answer for given data instance
-        data_class_id = request.POST['data_class_id']
+        dd=request.POST['data_class_id']
+        print(dd)
+        data=dd.split(' ')
+
+        data_class_id = data[0]
+        #data_class_id=1
         data_instance = request.POST['DataInstance']
         task_id = request.POST['task_id']
+
+        speech =gTTS(text=data[1])
+        speech.save('DataFlair.mp3')
+        playsound('DataFlair.mp3')
+        os.remove("DataFlair.mp3")
+
+
         try:
             with transaction.atomic():
                 annotating_data_instance = MediaDataInstance.objects.get(taskID_id=task_id, media=data_instance)
