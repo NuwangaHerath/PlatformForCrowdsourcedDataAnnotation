@@ -18,23 +18,16 @@
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 
-    @media(orientation:portrait){
+
   @media(max-width:768px){
-    html{font-size:17px}
+    html{font-size:12px}
   }
   @media(max-width:300px){
     html{font-size:9px}
   }
-}
 
-@media(orientation:landscape){
-  @media(max-height:768px){
-    html{font-size:17px}
-  }
-  @media(max-height:300px){
-    html{font-size:9px}
-  }
-}
+
+
 
 </style>
 {% endblock %}
@@ -300,6 +293,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </div>
 </div>
 {% endif %}
+
+
+
+
 <script>
 function myFunction(taskid) {
    var taskidstr=taskid.toString()
@@ -319,5 +316,8 @@ function myFunction(taskid) {
 }
 </script>
 
+
+
 {% endblock %}
 </body>
+

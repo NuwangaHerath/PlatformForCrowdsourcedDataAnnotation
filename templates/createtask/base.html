@@ -70,9 +70,12 @@
         .spacer{
             margin-top:25px;
         }
+
+
+
     @media(orientation:portrait){
         @media(max-width:768px){
-            html{font-size:17px}
+            html{font-size:12px}
         }
         @media(max-width:300px){
             html{font-size:11px}
@@ -85,41 +88,66 @@
 
     }
 
-    @media(orientation:landscape){
-        @media(max-height:768px){
-            html{font-size:17px}
+    .copyright {
+        padding: 28px 0;
+        margin-top: 0px;
+        background-color: #303030; }
 
-            .spacer{
-                margin-top:10px;
-            }
-        }
-        @media(max-height:400px){
-            html{font-size:9px}
-        }
+    .footer-height-compensate{
+        height:96px;
     }
 
-
-
-    </style>
-
-    <style>
-
-    .copyright {
-  padding: 28px 0;
-  margin-top: 55px;
-  background-color: #303030; }
   .copyright span,
   .copyright a {
-    color: #878787;
-    -webkit-transition: all 0.3s linear;
-    -o-transition: all 0.3s linear;
-    transition: all 0.3s linear; }
+        color: #878787;
+        -webkit-transition: all 0.3s linear;
+        -o-transition: all 0.3s linear;
+        transition: all 0.3s linear; }
+
   .copyright a:hover {
     color:#007bff; }
 
-.copyright-menu ul {
-  text-align: right;
-  margin: 0; }
+
+    .copyright-menu ul {
+        display:flex;
+        flex-direction:row;
+        justify-content:flex-end;
+        padding-inline-start:0px;
+    }
+
+    @media(max-width:1000px){
+
+    }
+
+    @media(max-width:768px){
+        .copyright{
+            padding: 18px 0;
+        }
+
+        .footer-height-compensate{
+            height:66px;
+        }
+    }
+
+    @media(max-width:576px){
+        .copyright{
+            padding:12px 0;
+        }
+
+        .copyright-inner-container{
+            display:none;
+        }
+
+        .copyright-menu ul {
+            justify-content:center;
+        }
+
+        .footer-height-compensate{
+            height:46px;
+        }
+
+    }
+
 
 .copyright-menu li {
   display: inline-block;
@@ -148,8 +176,8 @@
       background: #FA6742;
       border-color: #FA6742; }
 
-           footer {
-   position:relative;
+   footer {
+   position:static;
    bottom:0;
    width:100%;
 }
@@ -165,7 +193,7 @@
 
 </head>
 
-<body>
+<body style="position:relative;min-height:100vh">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="font-size:17px">
     <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'home' %}"><b>CDAP</b></a>
@@ -236,9 +264,10 @@
 </nav>
 {% block container %}
 {% endblock container%}
+<div class="footer-height-compensate"></div>
 </body>
 
-<footer>
+<footer style="position:absolute;bottom:0">
     <!--    <div class="bg-light py-4">-->
     <!--        <div class="container text-center">-->
     <!--            <p class="text-muted mb-0 py-2">© 2019 Bootstrapious All rights reserved.</p>-->
@@ -277,11 +306,7 @@
     </div>
     <!-- End Copyright -->
     <!-- Back to top -->
-    <div id="back-to-top" class="back-to-top">
-        <button class="btn btn-dark" title="Back to Top" style="display: block;">
-            <i class="fa fa-angle-up"></i>
-        </button>
-    </div>
+
     <!-- End Back to top -->
 
     <!--    modal for privacy policies-->
